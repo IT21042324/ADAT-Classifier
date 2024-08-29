@@ -14,6 +14,7 @@ export const ImageClassifier = () => {
   const [image, setImage] = useState(null);
   const [showCancel, setShowCancel] = useState(false);
   const [showWebcam, setShowWebcam] = useState(false);
+  const [isClassified, setIsClassified] = useState(false);
 
   const handleIconClick = () => {
     if (showWebcam) {
@@ -35,6 +36,7 @@ export const ImageClassifier = () => {
   const handleClearImage = () => {
     setImage(null);
     setShowCancel(false);
+    setIsClassified(false);
   };
 
   const toggleCancel = () => {
@@ -54,12 +56,10 @@ export const ImageClassifier = () => {
   const handleClassifyImage = async () => {
     if (!image) return;
 
-    // Convert the image from base64 to a Blob
     const blob = await fetch(image).then((res) => res.blob());
 
-    // Create a FormData object and append the Blob
     const formData = new FormData();
-    formData.append("file", blob, "image.jpg"); // The third argument is the file name
+    formData.append("file", blob, "image.jpg");
 
     try {
       const response = await axios.post(
@@ -67,27 +67,26 @@ export const ImageClassifier = () => {
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data", // Important to set the correct content type
+            "Content-Type": "multipart/form-data",
           },
         }
       );
 
       console.log("Classification Result:", response.data);
 
-      // Replace the original image with the extracted face image
       const extractedFaceImage = `data:image/jpeg;base64,${response.data.face_image}`;
       setImage(extractedFaceImage);
+
+      setIsClassified(true);
     } catch (error) {
       console.error("Error classifying image:", error);
 
-      // Show SweetAlert2 error message
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Failed to classify image. Please upload another image.",
       });
 
-      // Clear the uploaded image
       handleClearImage();
     }
   };
@@ -164,7 +163,7 @@ export const ImageClassifier = () => {
               )}
             </div>
           </div>
-          {image ? (
+          {image && !isClassified ? (
             <div className={styles.uploadButton} onClick={handleClassifyImage}>
               <div className={styles.classifyText}>Classify Image</div>
               <FaInstalod style={{ fontSize: "1.5em" }} />

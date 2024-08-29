@@ -27,19 +27,14 @@ def read_root():
 @app.post("/upload/")
 async def upload_image(file: UploadFile = File(...)):
     try:
-        # Read the uploaded file as bytes
         image_bytes = await file.read()
-
-        # Open the image using PIL
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
 
-        # Convert the PIL image to an OpenCV image (numpy array)
         open_cv_image = np.array(image)
 
         # Detect and extract the face
         face_image = extract_face(open_cv_image)
 
-        # If no face is detected, return an error
         if face_image is None:
             raise HTTPException(
                 status_code=400,
@@ -47,7 +42,7 @@ async def upload_image(file: UploadFile = File(...)):
             )
 
         # Convert the extracted face image to a PIL image
-        face_image_pil = Image.fromarray(cv2.cvtColor(face_image, cv2.COLOR_BGR2RGB))
+        face_image_pil = Image.fromarray(face_image)
 
         # Save the face image to a buffer
         buffered = io.BytesIO()
