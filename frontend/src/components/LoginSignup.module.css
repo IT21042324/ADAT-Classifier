@@ -1,0 +1,205 @@
+.container {
+    color: black;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    overflow-x: hidden;
+
+    max-width: 500px;
+    margin: 60px auto;
+    box-sizing: border-box;
+    padding: 0 0 30px 0;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+
+    align-items: center;
+}
+
+.text {
+    color: rgb(24, 4, 4);
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline {
+    width: 70px;
+    height: 6px;
+    background: #150909c7;
+    border-radius: 10px;
+}
+
+.inputs {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    width: 400px;
+    height: 60px;
+    background: #eaeaea;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    /* Smooth transition for color change */
+}
+
+.iconStyle {
+    margin: 0 30px;
+    color: #797979;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.inputTextField {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 20px;
+    width: 100%;
+    /* Ensure the input field takes up the remaining space */
+}
+
+.input:focus-within .iconStyle {
+    color: #2a2a2a;
+    /* New color when input is focused */
+}
+
+.input:hover {
+    background-color: #e2e2e2;
+}
+
+.errorMessage {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: center;
+    width: 400px;
+
+    font-size: 16px;
+
+    margin: 0;
+    margin-top: -15px;
+    height: 30px;
+}
+
+.errorMessage .iconStyle {
+    color: rgb(217, 129, 129);
+    margin: 0 30px;
+}
+
+.errorMessage .authError {
+    color: rgb(217, 129, 129);
+    text-align: center;
+    font-weight: bold
+}
+
+.errorMessage .authError::after {
+    content: '!';
+    color: rgb(217, 129, 129);
+    font-weight: bold;
+}
+
+.forgotPassword {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-top: 20px;
+    width: 400px;
+    color: #797979;
+    font-size: 16px;
+}
+
+.clickHereContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    text-align: center;
+}
+
+.clickHereText {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.clickHereText:hover {
+    color: #2a2a2a;
+}
+
+.clickHereLine {
+    background-color: #2a2a2a;
+    width: 0px;
+    height: 3px;
+}
+
+.clickHereText:hover+.clickHereLine {
+    width: 40px;
+    transition: width 0.3s ease;
+}
+
+.clickHere::after {
+    content: '!';
+    color: #150909c7;
+    font-weight: bold;
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-top: 30px;
+}
+
+.submitContainer .submit {
+    padding: 15px;
+    color: #fff;
+    background-color: #150909c7;
+    border-radius: 50px;
+
+    font-size: 20px;
+    width: 150px;
+    height: 30px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.submitContainer .submit.unchecked {
+    background-color: #EAEAEA;
+    color: #676767;
+}
+
+.submitContainer .submit.unchecked:hover {
+    background-color: #bebcbc;
+    color: #575757;
+}
+
+.submitContainer .submit:hover {
+    background-color: rgb(24, 4, 4);
+}
+
+.submitContainer .submit:active {
+    background-color: rgb(24, 4, 4);
+}

@@ -1,0 +1,222 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    color: #b4b4b4;
+    /* Ensure the background color matches the dark theme */
+    z-index: 1000;
+    /* Ensure the header stays on top */
+
+    flex-wrap: wrap;
+}
+
+.titleBox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: auto;
+    padding: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.titleBox:hover {
+    background-color: #2a2a2a;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.title .name {
+    background: linear-gradient(45deg, pink, #bc4983);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titleBox .arrow {
+    font-size: 30px;
+    margin-top: -2px;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    position: relative;
+}
+
+.titleContainer .titleDropdown {
+    width: 300px;
+    padding: 0;
+    border-radius: 10px;
+    background: #424242;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.titleContainer .titleDropdown .titleDropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.titleContainer .titleDropdown .titleDropdownItem .titleIcon {
+    font-size: 30px;
+    margin-top: -1px;
+    background-color: #2a2a2a;
+    padding: 5px;
+    border-radius: 50px;
+
+}
+
+.titleContainer .titleDropdown .titleDropdownItem:hover {
+    background-color: #2a2a2a;
+}
+
+.titleContainer .featureContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.titleContainer .featureContainer .featureDescription {
+    font-size: 12px;
+    color: #fff;
+}
+
+.avatarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    position: relative;
+}
+
+.avatarContainer .avatar {
+    padding: 1px;
+    cursor: pointer;
+}
+
+.avatarContainer .avatar:hover {
+    box-shadow: 0 0 20px #b4b4b4;
+}
+
+.avatarContainer .avatarSmallScreen {
+    padding: 1px;
+    cursor: pointer;
+    display: none;
+}
+
+.avatarContainer .avatarSmallScreen:hover {
+    box-shadow: 0 0 20px #b4b4b4;
+}
+
+.avatarContainer .avatarDropdown {
+    width: 300px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #424242;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.avatarContainer .avatarDropdown .avatarDropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.avatarContainer .avatarDropdown .avatarDropdownItem .avatarDropdownIcon {
+    font-size: 20px;
+    margin-top: -1px;
+}
+
+.avatarContainer .avatarDropdown .avatarDropdownItem:hover {
+    background-color: #2a2a2a;
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+
+    .titleBox {
+        cursor: default;
+    }
+
+
+    .avatarContainer .avatarSmallScreen {
+        display: block;
+    }
+
+    .avatarContainer .avatar {
+        display: none;
+    }
+
+
+    .avatarContainer .avatarDropdown {
+        width: 200px;
+        padding: 8px;
+        border-radius: 10px;
+        background: #424242;
+
+        position: absolute;
+        top: 48px;
+        left: 50%;
+        /* Move the element to the middle of its container */
+        transform: translateX(-50%);
+        /* Move it back by half of its width */
+
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+        display: flex;
+        flex-direction: column;
+
+        max-width: 140px;
+        margin: 0 auto;
+    }
+
+
+    .titleBox .arrow {
+        display: none;
+    }
+
+    .titleBox:hover {
+        background: none;
+    }
+
+
+    .titleContainer .titleDropdown {
+        display: none;
+    }
+}
