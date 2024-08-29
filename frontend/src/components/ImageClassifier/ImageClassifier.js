@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import { FaInstalod } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdAddAPhoto, MdAddPhotoAlternate } from "react-icons/md";
@@ -40,7 +42,6 @@ export const ImageClassifier = () => {
   };
 
   const handleCameraIconClick = () => {
-    // Show the webcam feed to allow capturing photo
     setShowWebcam(true);
   };
 
@@ -48,6 +49,47 @@ export const ImageClassifier = () => {
     const screenshot = webcamRef.current.getScreenshot();
     setImage(screenshot);
     setShowWebcam(false);
+  };
+
+  const handleClassifyImage = async () => {
+    if (!image) return;
+
+    // Convert the image from base64 to a Blob
+    const blob = await fetch(image).then((res) => res.blob());
+
+    // Create a FormData object and append the Blob
+    const formData = new FormData();
+    formData.append("file", blob, "image.jpg"); // The third argument is the file name
+
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/upload/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // Important to set the correct content type
+          },
+        }
+      );
+
+      console.log("Classification Result:", response.data);
+
+      // Replace the original image with the extracted face image
+      const extractedFaceImage = `data:image/jpeg;base64,${response.data.face_image}`;
+      setImage(extractedFaceImage);
+    } catch (error) {
+      console.error("Error classifying image:", error);
+
+      // Show SweetAlert2 error message
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Failed to classify image. Please upload another image.",
+      });
+
+      // Clear the uploaded image
+      handleClearImage();
+    }
   };
 
   return (
@@ -87,7 +129,6 @@ export const ImageClassifier = () => {
                     screenshotFormat="image/jpeg"
                     className={styles.webcam}
                   />
-
                   <TbCaptureFilled
                     onClick={capturePhoto}
                     className={styles.captureButton}
@@ -124,7 +165,7 @@ export const ImageClassifier = () => {
             </div>
           </div>
           {image ? (
-            <div className={styles.uploadButton}>
+            <div className={styles.uploadButton} onClick={handleClassifyImage}>
               <div className={styles.classifyText}>Classify Image</div>
               <FaInstalod style={{ fontSize: "1.5em" }} />
             </div>
