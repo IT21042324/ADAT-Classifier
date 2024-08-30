@@ -1,3 +1,5 @@
 # Ignore node_modules directory
 node_modules/
-backend/models/
+backend/models/*.pth
+backend/models/*.h5
+backend/models/*.pkl
