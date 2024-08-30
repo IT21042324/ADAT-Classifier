@@ -53,6 +53,8 @@ export const ImageClassifier = () => {
     setShowWebcam(false);
   };
 
+  const [classificationResult, setClassificationResult] = useState(null);
+
   const handleClassifyImage = async () => {
     if (!image) return;
 
@@ -76,6 +78,12 @@ export const ImageClassifier = () => {
 
       const extractedFaceImage = `data:image/jpeg;base64,${response.data.face_image}`;
       setImage(extractedFaceImage);
+
+      // Store the classification result and confidence in the state
+      setClassificationResult({
+        result: response.data.result,
+        confidence: response.data.confidence,
+      });
 
       setIsClassified(true);
     } catch (error) {
@@ -170,6 +178,18 @@ export const ImageClassifier = () => {
             </div>
           ) : null}
         </div>
+
+        {/* Display classification result if available */}
+        {isClassified && classificationResult && (
+          <div className={styles.resultContainer}>
+            <div className={styles.resultText}>
+              Classification Result: {classificationResult.result}
+            </div>
+            <div className={styles.confidenceText}>
+              Confidence: {(classificationResult.confidence * 100).toFixed(2)}%
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
