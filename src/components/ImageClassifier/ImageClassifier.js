@@ -15,6 +15,8 @@ export const ImageClassifier = () => {
   const [showCancel, setShowCancel] = useState(false);
   const [showWebcam, setShowWebcam] = useState(false);
   const [isClassified, setIsClassified] = useState(false);
+  const [classificationResult, setClassificationResult] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleIconClick = () => {
     if (showWebcam) {
@@ -37,6 +39,7 @@ export const ImageClassifier = () => {
     setImage(null);
     setShowCancel(false);
     setIsClassified(false);
+    setClassificationResult(null);
   };
 
   const toggleCancel = () => {
@@ -53,10 +56,10 @@ export const ImageClassifier = () => {
     setShowWebcam(false);
   };
 
-  const [classificationResult, setClassificationResult] = useState(null);
-
   const handleClassifyImage = async () => {
     if (!image) return;
+
+    setIsLoading(true);
 
     const blob = await fetch(image).then((res) => res.blob());
 
@@ -83,6 +86,8 @@ export const ImageClassifier = () => {
       setClassificationResult({
         result: response.data.result,
         confidence: response.data.confidence,
+        acneTypes: response.data.acne_types || [],
+        probabilities: response.data.probabilities || [],
       });
 
       setIsClassified(true);
@@ -96,6 +101,8 @@ export const ImageClassifier = () => {
       });
 
       handleClearImage();
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -179,15 +186,38 @@ export const ImageClassifier = () => {
           ) : null}
         </div>
 
-        {/* Display classification result if available */}
+        {isLoading && <div className={styles.loadingText}>Classifying...</div>}
+
         {isClassified && classificationResult && (
           <div className={styles.resultContainer}>
-            <div className={styles.resultText}>
-              Classification Result: {classificationResult.result}
-            </div>
-            <div className={styles.confidenceText}>
-              Confidence: {(classificationResult.confidence * 100).toFixed(2)}%
-            </div>
+            {classificationResult.result === "Normal" ? (
+              <>
+                <div className={styles.resultText}>
+                  Classification Result: {classificationResult.result}
+                </div>
+                <div className={styles.confidenceText}>
+                  Confidence:{" "}
+                  {(classificationResult.confidence * 100).toFixed(2)}%
+                </div>
+              </>
+            ) : (
+              <div className={styles.acneTypesContainer}>
+                <div className={styles.acneTypesText}>Detected Acne Types:</div>
+                <div className={styles.acneTypeGrid}>
+                  {classificationResult.acneTypes.map((type, index) => (
+                    <div className={styles.acneTypeItem} key={index}>
+                      <span className={styles.acneType}>{type}</span>
+                      <span className={styles.acneProbability}>
+                        {(
+                          classificationResult.probabilities[index] * 100
+                        ).toFixed(2)}
+                        %
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
