@@ -8,7 +8,6 @@ import {
 import "./App.css";
 import Home from "./components/Home/Home";
 import LoginSignup from "./components/LoginSignup";
-import Signup from "./components/Signup";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
@@ -21,7 +20,6 @@ function App() {
             path="/login"
             element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />}
           />
-          <Route path="/signup" element={<Signup />} />
           <Route
             path="/classify"
             element={

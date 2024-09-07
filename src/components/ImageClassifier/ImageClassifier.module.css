@@ -7,34 +7,6 @@
     justify-content: center;
 }
 
-.acneTypesContainer {
-    margin-top: 20px;
-}
-
-.acneTypeGrid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(120px, 1fr));
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.acneTypeItem {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-}
-
-.acneType {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.acneProbability {
-    color: #ff6347;
-}
-
 /* Container */
 .container {
     width: 100%;
@@ -149,14 +121,18 @@
 
 /* Uploaded Image */
 .uploadedImage {
-    max-width: 100%;
+    max-width: 350px;
     max-height: 350px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    /* Ensures it takes up the full width of the container */
+    height: 350px;
+    /* Set a fixed height */
+    object-fit: cover;
+    /* This keeps the aspect ratio of the image */
     border-radius: 10px;
     transition: filter 0.3s;
 }
+
 
 /* Blurred Image */
 .imageBlurred {
@@ -269,8 +245,8 @@
     }
 
     .imageContainer {
-        height: auto;
-        max-height: 200px;
+        height: 100%;
+        max-height: 350px;
         margin-bottom: 10px;
     }
 
@@ -283,6 +259,7 @@
 
     .uploadedImage {
         max-height: 200px;
+        max-width: 200px;
     }
 
     .cancelUpload {

@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
+import React, { useRef, useState } from "react";
 import { FaInstalod } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdAddAPhoto, MdAddPhotoAlternate } from "react-icons/md";
 import { TbCaptureFilled } from "react-icons/tb";
 import Webcam from "react-webcam";
+import Swal from "sweetalert2";
+import { ClassificationResult } from "./ClassificationResult";
 import styles from "./ImageClassifier.module.css";
 
 export const ImageClassifier = () => {
@@ -76,8 +77,6 @@ export const ImageClassifier = () => {
           },
         }
       );
-
-      console.log("Classification Result:", response.data);
 
       const extractedFaceImage = `data:image/jpeg;base64,${response.data.face_image}`;
       setImage(extractedFaceImage);
@@ -178,6 +177,7 @@ export const ImageClassifier = () => {
               )}
             </div>
           </div>
+
           {image && !isClassified ? (
             <div className={styles.uploadButton} onClick={handleClassifyImage}>
               <div className={styles.classifyText}>Classify Image</div>
@@ -186,40 +186,11 @@ export const ImageClassifier = () => {
           ) : null}
         </div>
 
-        {isLoading && <div className={styles.loadingText}>Classifying...</div>}
-
-        {isClassified && classificationResult && (
-          <div className={styles.resultContainer}>
-            {classificationResult.result === "Normal" ? (
-              <>
-                <div className={styles.resultText}>
-                  Classification Result: {classificationResult.result}
-                </div>
-                <div className={styles.confidenceText}>
-                  Confidence:{" "}
-                  {(classificationResult.confidence * 100).toFixed(2)}%
-                </div>
-              </>
-            ) : (
-              <div className={styles.acneTypesContainer}>
-                <div className={styles.acneTypesText}>Detected Acne Types:</div>
-                <div className={styles.acneTypeGrid}>
-                  {classificationResult.acneTypes.map((type, index) => (
-                    <div className={styles.acneTypeItem} key={index}>
-                      <span className={styles.acneType}>{type}</span>
-                      <span className={styles.acneProbability}>
-                        {(
-                          classificationResult.probabilities[index] * 100
-                        ).toFixed(2)}
-                        %
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+        <ClassificationResult
+          isLoading={isLoading}
+          isClassified={isClassified}
+          classificationResult={classificationResult}
+        />
       </div>
     </div>
   );
