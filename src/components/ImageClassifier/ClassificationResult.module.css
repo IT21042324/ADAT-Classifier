@@ -24,4 +24,39 @@
 
 .acneProbability {
     color: #ff6347;
+    font-weight: bold;
+}
+
+.acneProbabilityHighest {
+    color: white;
+    font-weight: bold;
+
+}
+
+/* Class for the highest probability item */
+.highestProbability {
+    background-color: red;
+    color: white;
+}
+
+/* Other result styling */
+.resultContainer .normalContainer .resultText {
+    color: #3CB371;
+    font-weight: bold;
+}
+
+.resultContainer .normalContainer {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+}
+
+.resultContainer .normalContainer .result {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultContainer .normalContainer .confidence {
+    display: flex;
+    justify-content: space-between;
 }
