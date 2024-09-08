@@ -66,6 +66,20 @@ export const Header = () => {
     (item) => item.navigate !== location.pathname
   );
 
+  // useEffect to set body overflow-y property
+  useEffect(() => {
+    if (location.pathname === "/classify") {
+      document.body.style.overflowY = "hidden"; // Hide vertical scrolling
+    } else {
+      document.body.style.overflowY = "auto"; // Reset to auto for other pages
+    }
+
+    return () => {
+      // Cleanup when the component is unmounted
+      document.body.style.overflowY = "auto";
+    };
+  }, [location.pathname]); // Run whenever the route changes
+
   return (
     <div className={styles.container}>
       <div
