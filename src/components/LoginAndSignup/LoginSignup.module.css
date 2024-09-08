@@ -1,29 +1,27 @@
+/* Base Styles */
 .container {
     color: black;
     background-color: white;
-
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     overflow-x: hidden;
-
     max-width: 500px;
     margin: 60px auto;
     box-sizing: border-box;
     padding: 0 0 30px 0;
 }
 
+/* For large screens, height remains unset, allowing the container to take its natural height */
 .header {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 30px;
     width: 100%;
-
     align-items: center;
 }
 
@@ -57,7 +55,6 @@
     background: #eaeaea;
     border-radius: 6px;
     transition: all 0.3s ease;
-    /* Smooth transition for color change */
 }
 
 .iconStyle {
@@ -73,12 +70,10 @@
     background: none;
     font-size: 20px;
     width: 100%;
-    /* Ensure the input field takes up the remaining space */
 }
 
 .input:focus-within .iconStyle {
     color: #2a2a2a;
-    /* New color when input is focused */
 }
 
 .input:hover {
@@ -91,9 +86,7 @@
     gap: 10px;
     align-items: center;
     width: 400px;
-
     font-size: 16px;
-
     margin: 0;
     margin-top: -15px;
     height: 30px;
@@ -107,12 +100,6 @@
 .errorMessage .authError {
     color: rgb(217, 129, 129);
     text-align: center;
-    font-weight: bold
-}
-
-.errorMessage .authError::after {
-    content: '!';
-    color: rgb(217, 129, 129);
     font-weight: bold;
 }
 
@@ -124,41 +111,6 @@
     width: 400px;
     color: #797979;
     font-size: 16px;
-}
-
-.clickHereContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-
-    text-align: center;
-}
-
-.clickHereText {
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.clickHereText:hover {
-    color: #2a2a2a;
-}
-
-.clickHereLine {
-    background-color: #2a2a2a;
-    width: 0px;
-    height: 3px;
-}
-
-.clickHereText:hover+.clickHereLine {
-    width: 40px;
-    transition: width 0.3s ease;
-}
-
-.clickHere::after {
-    content: '!';
-    color: #150909c7;
-    font-weight: bold;
 }
 
 .submitContainer {
@@ -173,16 +125,13 @@
     color: #fff;
     background-color: #150909c7;
     border-radius: 50px;
-
     font-size: 20px;
     width: 150px;
     height: 30px;
     font-weight: 700;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
 }
 
@@ -202,4 +151,125 @@
 
 .submitContainer .submit:active {
     background-color: rgb(24, 4, 4);
+}
+
+/* Mobile Responsiveness */
+
+/* For medium screens (max-width: 500px), the container takes 80% of the height */
+@media screen and (max-width: 500px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        height: 80vh;
+        /* 80% of the viewport height */
+    }
+
+    .header {
+        margin-top: 20px;
+    }
+
+    .text {
+        font-size: 36px;
+    }
+
+    .underline {
+        width: 50px;
+        height: 4px;
+    }
+
+    .inputs {
+        margin-top: 30px;
+    }
+
+    .input {
+        width: 100%;
+        height: 50px;
+    }
+
+    .inputTextField {
+        font-size: 16px;
+    }
+
+    .iconStyle {
+        margin: 0 15px;
+        font-size: 18px;
+    }
+
+    .errorMessage,
+    .forgotPassword,
+    .submitContainer {
+        width: 100%;
+    }
+
+    .submitContainer {
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+        margin-top: 30px;
+    }
+
+    .submitContainer .submit {
+        width: 60px;
+        font-size: 14px;
+        height: 20px;
+        padding: 10px;
+    }
+}
+
+/* For smaller screens (max-width: 384px), the container takes 100% of the height */
+@media screen and (max-width: 384px) {
+
+    .header {
+        margin-top: 10px;
+    }
+
+    .text {
+        font-size: 32px;
+    }
+
+    .underline {
+        width: 40px;
+        height: 4px;
+    }
+
+    .inputs {
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    .input {
+        width: 100%;
+        height: 45px;
+    }
+
+    .inputTextField {
+        font-size: 14px;
+    }
+
+    .iconStyle {
+        margin: 0 10px;
+        font-size: 16px;
+    }
+
+    .errorMessage,
+    .forgotPassword,
+    .submitContainer {
+        width: 100%;
+    }
+
+    .submitContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .submitContainer .submit {
+        width: 80px;
+        font-size: 14px;
+        height: 25px;
+        padding: 10px;
+    }
 }
