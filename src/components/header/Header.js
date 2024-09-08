@@ -1,10 +1,12 @@
 import { Avatar } from "@mui/material";
-import { common, deepPurple, grey } from "@mui/material/colors";
+import { deepPurple, grey } from "@mui/material/colors";
+import { useEffect, useRef, useState } from "react";
+import { IoMdMenu } from "react-icons/io";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import useAuthContextProvider from "../context/useAuth";
+import { UseHeaderFunctions } from "../useHook/useHeaderFunctions";
 import styles from "./header.module.css";
 import { dropDownItems, titleDropdownItems } from "./headerImportItems";
-import { useState, useEffect, useRef } from "react";
-import { IoMdMenu } from "react-icons/io";
 
 export const Header = () => {
   const [isAvatarClicked, setIsAvatarClicked] = useState(false);
@@ -12,6 +14,9 @@ export const Header = () => {
 
   const avatarDropdownRef = useRef(null);
   const titleDropdownRef = useRef(null);
+
+  // Retrieve the username from AuthContext
+  const { userName } = useAuthContextProvider(); // Get the username from context
 
   const handleClickOutside = (event) => {
     if (
@@ -39,6 +44,18 @@ export const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isAvatarClicked, isTitleClicked]);
+
+  const { handleHeaderFunctions } = UseHeaderFunctions();
+
+  // Function to get initials from username
+  const getInitials = (name) => {
+    const nameParts = name.split(" ");
+    if (nameParts.length > 1) {
+      return nameParts[0][0] + nameParts[1][0]; // First letter of first and last name
+    } else {
+      return name[0]; // First letter of the name
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -83,7 +100,8 @@ export const Header = () => {
           style={{ background: deepPurple[500] }}
           onClick={() => setIsAvatarClicked((prev) => !prev)}
         >
-          A
+          {userName ? getInitials(userName) : "A"}{" "}
+          {/* Show username initials */}
         </Avatar>
 
         <IoMdMenu
@@ -97,7 +115,11 @@ export const Header = () => {
           <div className={styles.avatarDropdown}>
             {dropDownItems.map((item) => {
               return (
-                <div key={item.text} className={styles.avatarDropdownItem}>
+                <div
+                  key={item.text}
+                  className={styles.avatarDropdownItem}
+                  onClick={() => handleHeaderFunctions(item.function)}
+                >
                   {item.icon}
                   {item.text}
                 </div>

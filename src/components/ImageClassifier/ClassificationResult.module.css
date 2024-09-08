@@ -27,19 +27,13 @@
     font-weight: bold;
 }
 
-.acneProbabilityHighest {
-    color: white;
-    font-weight: bold;
-
-}
-
-/* Class for the highest probability item */
 .highestProbability {
     background-color: red;
     color: white;
+    font-weight: bold;
 }
 
-/* Other result styling */
+/* Result styling */
 .resultContainer .normalContainer .resultText {
     color: #3CB371;
     font-weight: bold;
@@ -51,12 +45,28 @@
     width: 220px;
 }
 
-.resultContainer .normalContainer .result {
+.resultContainer .normalContainer .result,
+.resultContainer .normalContainer .confidence {
     display: flex;
     justify-content: space-between;
 }
 
-.resultContainer .normalContainer .confidence {
-    display: flex;
-    justify-content: space-between;
+/* Medium screens (less than 700px) */
+@media screen and (max-width: 700px) {
+    .acneTypeGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile screens (less than 400px) */
+@media screen and (max-width: 400px) {
+    .acneTypeGrid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .acneTypeItem {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
 }

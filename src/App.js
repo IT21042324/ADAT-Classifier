@@ -1,32 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Navigate,
   Route,
   BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
-import "./App.css";
 import Home from "./components/Home/Home";
-import LoginSignup from "./components/LoginSignup";
+import LoginSignup from "./components/LoginAndSignup/LoginSignup";
+import useAuthContextProvider from "./components/context/useAuth";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-
+  const { cookie } = useAuthContextProvider(); // Get authentication state from AuthContext
   return (
     <Router>
       <div className="App">
         <Routes>
+          {/* Default Redirect to Login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+
+          {/* Login and Signup Route */}
           <Route
             path="/login"
-            element={<LoginSignup setIsAuthenticated={setIsAuthenticated} />}
-          />
-          <Route
-            path="/classify"
             element={
-              isAuthenticated ? <Home /> : <Navigate to="/login" replace />
+              cookie ? <Navigate to="/classify" replace /> : <LoginSignup />
             }
           />
-          <Route path="/" element={<Navigate to="/login" replace />} />
+
+          {/* Protected Route */}
+          <Route
+            path="/classify"
+            element={cookie ? <Home /> : <Navigate to="/login" replace />}
+          />
         </Routes>
       </div>
     </Router>

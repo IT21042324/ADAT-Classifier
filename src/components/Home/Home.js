@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Header } from "../header/Header";
-import "./Home.css";
 import { ImageClassifier } from "../ImageClassifier/ImageClassifier";
+import "./Home.css";
 
 function Home() {
-  const [classificationResult, setClassificationResult] = useState(null);
-
-  const handleClassification = (result) => {
-    setClassificationResult(result);
-  };
-
   return (
     <>
       <Header />

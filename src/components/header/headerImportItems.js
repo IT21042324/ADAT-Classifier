@@ -8,6 +8,7 @@ export const dropDownItems = [
   {
     text: "Profile",
     icon: <CgProfile className={styles.avatarDropdownIcon} />,
+    function: "None",
   },
   {
     text: "Settings",
@@ -16,6 +17,7 @@ export const dropDownItems = [
   {
     text: "Logout",
     icon: <IoLogOutSharp className={styles.avatarDropdownIcon} />,
+    function: "Logout",
   },
 ];
 
