@@ -31,7 +31,7 @@ export const titleDropdownItems = [
   },
   {
     icon: <PiScanSmiley className={styles.titleIcon} />,
-    title: "ADAT Classifier",
+    title: "Acne Classifier",
     description: "Classify Acne Images",
     navigate: "/classify",
   },
