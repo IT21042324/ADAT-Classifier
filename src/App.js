@@ -8,9 +8,11 @@ import {
 import Home from "./components/Home/Home";
 import LoginSignup from "./components/LoginAndSignup/LoginSignup";
 import useAuthContextProvider from "./components/context/useAuth";
+import { Synth } from "./components/Synth/Synth";
 
 function App() {
-  const { cookie } = useAuthContextProvider(); // Get authentication state from AuthContext
+  const { cookie } = useAuthContextProvider();
+
   return (
     <Router>
       <div className="App">
@@ -26,10 +28,16 @@ function App() {
             }
           />
 
-          {/* Protected Route */}
+          {/* Protected Route for /classify */}
           <Route
             path="/classify"
             element={cookie ? <Home /> : <Navigate to="/login" replace />}
+          />
+
+          {/* Protected Route for /synth */}
+          <Route
+            path="/synth"
+            element={cookie ? <Synth /> : <Navigate to="/login" replace />}
           />
         </Routes>
       </div>

@@ -22,7 +22,10 @@
     "react-spinners": "^0.14.1",
     "react-webcam": "^7.2.0",
     "sweetalert2": "^11.12.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-bootstrap": "^2.5.0",
+    "react-hot-toast": "^2.4.1",
+    "react-image-crop": "^8.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

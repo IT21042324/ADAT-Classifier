@@ -7,6 +7,7 @@ import useAuthContextProvider from "../context/useAuth";
 import { UseHeaderFunctions } from "../useHook/useHeaderFunctions";
 import styles from "./header.module.css";
 import { dropDownItems, titleDropdownItems } from "./headerImportItems";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [isAvatarClicked, setIsAvatarClicked] = useState(false);
@@ -14,6 +15,8 @@ export const Header = () => {
 
   const avatarDropdownRef = useRef(null);
   const titleDropdownRef = useRef(null);
+
+  const navigate = useNavigate();
 
   // Retrieve the username from AuthContext
   const { userName } = useAuthContextProvider(); // Get the username from context
@@ -79,7 +82,13 @@ export const Header = () => {
           >
             {titleDropdownItems.map((itm) => {
               return (
-                <div className={styles.titleDropdownItem} key={itm.title}>
+                <div
+                  className={styles.titleDropdownItem}
+                  key={itm.title}
+                  onClick={() => {
+                    navigate(itm.navigate);
+                  }}
+                >
                   {itm.icon}
                   <div className={styles.featureContainer}>
                     {itm.title}
