@@ -8,6 +8,7 @@ import Webcam from "react-webcam";
 import Swal from "sweetalert2";
 import { ClassificationResult } from "./ClassificationResult";
 import styles from "./ImageClassifier.module.css";
+import ScaleLoader from "react-spinners/ScaleLoader"; // Updated loader
 
 export const ImageClassifier = () => {
   const fileInputRef = React.createRef();
@@ -180,8 +181,14 @@ export const ImageClassifier = () => {
 
           {image && !isClassified ? (
             <div className={styles.uploadButton} onClick={handleClassifyImage}>
-              <div className={styles.classifyText}>Classify Image</div>
-              <FaInstalod style={{ fontSize: "1.5em" }} />
+              {isLoading ? (
+                <ScaleLoader color="#fff" height={15} loading={isLoading} />
+              ) : (
+                <>
+                  <div className={styles.classifyText}>Classify Image</div>
+                  <FaInstalod style={{ fontSize: "1.5em" }} />
+                </>
+              )}
             </div>
           ) : null}
         </div>

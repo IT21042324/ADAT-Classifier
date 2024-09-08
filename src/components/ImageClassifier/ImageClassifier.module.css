@@ -161,7 +161,7 @@
 
 /* Upload Button */
 .uploadButton {
-    background-color: black;
+    background-color: #150909c7;
     padding: 15px;
     width: 90%;
     max-width: 600px;
@@ -176,6 +176,10 @@
     align-items: center;
     box-sizing: border-box;
     margin-top: 20px;
+}
+
+.uploadButton:hover {
+    background-color: rgb(24, 4, 4);
 }
 
 

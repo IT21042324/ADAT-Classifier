@@ -42,9 +42,6 @@ export const ClassificationResult = ({
       </div>
     ));
 
-  if (isLoading)
-    return <div className={styles.loadingText}>Classifying...</div>;
-
   return isClassified && classificationResult ? (
     <div className={styles.resultContainer}>
       {classificationResult.result === "Normal" ? (
