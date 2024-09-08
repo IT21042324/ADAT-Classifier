@@ -1,11 +1,18 @@
 .box_case-study.image1 {
-    background-image: url(https://images.stockcake.com/public/e/6/c/e6c8401e-7192-4dcf-877d-ab3755897dc9_medium/acne-affected-complexion-stockcake.jpg);
+    background-image: url(https://media.allure.com/photos/59d409f6374106159a3bd680/1:1/w_1440,h_1440,c_limit/lede.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
 }
 
+.box_case-study.image2 {
+    background-image: url('../../assets/synth.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
 
 .sv-original-tag {
     color: var(--text-black);

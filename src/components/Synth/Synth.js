@@ -1,18 +1,6 @@
-// import logo from '../../Crop Component/Logo/logo.png'
-// import Logo from '../../Utility/Logo/Logo';
-import { useNavigate } from "react-router-dom";
 import "./synth.css";
 
 export const Synth = () => {
-  const navigate = useNavigate();
-  // useEffect(() => {
-  //   const res = verifyuser();
-  //   console.log(res);
-  //   if (!res) {
-  //     navigate("login");
-  //   }
-  // }, []);
-
   return (
     <header className="App-header bg-white">
       <div className="container mt-5">
@@ -94,15 +82,9 @@ export const Synth = () => {
           </div>
         </div>
 
-        <div className="row justify-content-center mb-5">
+        <div className="row justify-content-flex-start mb-5">
           <div className="col-6">
-            <p className="btn btn-primary fs-5 ">case study</p>
-            <p className="fs-1 ">Proven Result: SynthGen </p>
-          </div>
-          <div className="col-6">
-            <div className="box_case-study image1">
-              <div class="sv-original-tag">original</div>
-            </div>
+            <p className="fs-1">Proven Result: SynthGen </p>
           </div>
         </div>
 
@@ -146,8 +128,8 @@ export const Synth = () => {
             </div>
           </div>
           <div className="col-6">
-            <div className="box_case-study image1">
-              <div class="sv-original-tag">original</div>
+            <div className="box_case-study image2">
+              <div class="sv-original-tag">Synthetic</div>
             </div>
           </div>
         </div>
