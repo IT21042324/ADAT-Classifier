@@ -1,8 +1,9 @@
 import { CgProfile } from "react-icons/cg";
 import { IoLogOutSharp, IoSettings } from "react-icons/io5";
 
-import styles from "./header.module.css";
+import { PiScanSmiley } from "react-icons/pi";
 import { RiAiGenerate } from "react-icons/ri";
+import styles from "./header.module.css";
 
 export const dropDownItems = [
   {
@@ -27,5 +28,11 @@ export const titleDropdownItems = [
     title: "ADAT SynthGen",
     description: "Generate Synthetic Acne Images",
     navigate: "/synth",
+  },
+  {
+    icon: <PiScanSmiley className={styles.titleIcon} />,
+    title: "Acne Classifier",
+    description: "Classify Acne Images",
+    navigate: "/classify",
   },
 ];

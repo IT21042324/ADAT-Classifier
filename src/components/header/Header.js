@@ -1,18 +1,19 @@
+import React, { useEffect, useRef, useState } from "react";
 import { Avatar } from "@mui/material";
 import { deepPurple, grey } from "@mui/material/colors";
-import { useEffect, useRef, useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuthContextProvider from "../context/useAuth";
 import { UseHeaderFunctions } from "../useHook/useHeaderFunctions";
 import styles from "./header.module.css";
 import { dropDownItems, titleDropdownItems } from "./headerImportItems";
-import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [isAvatarClicked, setIsAvatarClicked] = useState(false);
   const [isTitleClicked, setIsTitleClicked] = useState(false);
 
+  const location = useLocation(); // Track current location
   const avatarDropdownRef = useRef(null);
   const titleDropdownRef = useRef(null);
 
@@ -60,6 +61,25 @@ export const Header = () => {
     }
   };
 
+  // Filter out the current path from the dropdown items
+  const filteredTitleDropdownItems = titleDropdownItems.filter(
+    (item) => item.navigate !== location.pathname
+  );
+
+  // useEffect to set body overflow-y property
+  useEffect(() => {
+    if (location.pathname === "/classify") {
+      document.body.style.overflowY = "hidden"; // Hide vertical scrolling
+    } else {
+      document.body.style.overflowY = "auto"; // Reset to auto for other pages
+    }
+
+    return () => {
+      // Cleanup when the component is unmounted
+      document.body.style.overflowY = "auto";
+    };
+  }, [location.pathname]); // Run whenever the route changes
+
   return (
     <div className={styles.container}>
       <div
@@ -80,13 +100,14 @@ export const Header = () => {
             className={styles.titleDropdown}
             onClick={(e) => e.stopPropagation()} // Stop click event propagation
           >
-            {titleDropdownItems.map((itm) => {
+            {filteredTitleDropdownItems.map((itm) => {
               return (
                 <div
                   className={styles.titleDropdownItem}
                   key={itm.title}
                   onClick={() => {
                     navigate(itm.navigate);
+                    setIsTitleClicked(false); // Close the dropdown after navigation
                   }}
                 >
                   {itm.icon}
