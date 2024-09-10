@@ -115,13 +115,13 @@
 
 .submitContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 400px;
     margin-top: 30px;
 }
 
 .submitContainer .submit {
-    padding: 15px;
+    padding: 25px;
     color: #fff;
     background-color: #150909c7;
     border-radius: 50px;
@@ -203,16 +203,17 @@
 
     .submitContainer {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 60%;
         margin-top: 30px;
+        gap: 10px;
     }
 
     .submitContainer .submit {
-        width: 60px;
+        width: 120px;
         font-size: 14px;
         height: 20px;
-        padding: 10px;
+        padding: 25px;
     }
 }
 
@@ -267,9 +268,10 @@
     }
 
     .submitContainer .submit {
-        width: 80px;
+        width: 120px;
         font-size: 14px;
         height: 25px;
-        padding: 10px;
+        padding: 20px;
     }
+
 }

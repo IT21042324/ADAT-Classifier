@@ -10,7 +10,7 @@ export const Synth = () => {
               Overcoming Data Limitations & Biases with Synthetic Image Data
             </p>
             <p className="fs-5 fw-lighter">
-              We leverages advanced AI technology created by physician engineers
+              We leverage advanced AI technology created by physician engineers
               to generate high-quality, diverse, synthetic healthcare images,
               setting a new standard for accuracy, diversity, and speed in
               healthcare research and diagnostics.
@@ -27,7 +27,7 @@ export const Synth = () => {
           <div className=" col-8 mb-3">
             <p className="fs-3 text-center mt-5">
               Amplifying healthcare imaging for breakthroughs that matter, with
-              SynthVision's AI that understands life's nuances.
+              SynthGen's AI that understands life's nuances.
             </p>
           </div>
         </div>
@@ -95,8 +95,8 @@ export const Synth = () => {
                 <div class="card-body">
                   <h5 class="card-title blue-color">Challenge</h5>
                   <p class="card-text mt-3 fs-6 fw-lighter mt-5">
-                    You own the data outright, with no worries about privacy
-                    issues, patient consent or legal hassles.
+                    Healthcare data is often biased, lacking diversity and rare
+                    disease representation, limiting diagnostic accuracy.
                   </p>
                 </div>
               </div>
@@ -106,8 +106,9 @@ export const Synth = () => {
                 <div class="card-body">
                   <h5 class="card-title blue-color">Solution</h5>
                   <p class="card-text mt-3 fs-6 fw-lighter mt-5">
-                    You own the data outright, with no worries about privacy
-                    issues, patient consent or legal hassles.
+                    SynthGen creates diverse, realistic synthetic images,
+                    reducing bias and enhancing model precision by covering
+                    underrepresented conditions.
                   </p>
                 </div>
               </div>
@@ -118,11 +119,11 @@ export const Synth = () => {
               <div class="card-body">
                 <h5 class="card-title blue-color mb-5">Result</h5>
 
-                <h5 class="card-title blue-color display-3 text-center">96%</h5>
+                <h5 class="card-title blue-color display-3 text-center">84%</h5>
                 <p className="text-center">Accuracy</p>
                 <p class="card-text mt-3 fs-6 fw-lighter mt-5">
-                  You own the data outright, with no worries about privacy
-                  issues, patient consent or legal hassles.
+                  Significant accuracy gains, ensuring more precise diagnostics
+                  while addressing data privacy and bias concerns.
                 </p>
               </div>
             </div>
@@ -131,6 +132,19 @@ export const Synth = () => {
             <div className="box_case-study image2">
               <div class="sv-original-tag">Synthetic</div>
             </div>
+          </div>
+        </div>
+
+        <div className="row justify-content-center mt-5">
+          <div className="col-8 text-center">
+            <p className="fs-5">
+              If you require access to the synthetic acne images used to train
+              our diagnostic tool, or have any inquiries regarding medical image
+              data, please contact us.
+            </p>
+            <p className="fs-6 fw-lighter">
+              Contact: <strong>medicaldata@synthgen.com</strong>
+            </p>
           </div>
         </div>
       </div>
