@@ -90,7 +90,6 @@ export const Header = () => {
         <div className={styles.titleBox}>
           <h1 className={styles.title}>
             <span className={styles.name}>ADAT </span>
-            Classifier
           </h1>
           <MdKeyboardArrowDown className={styles.arrow} />
         </div>
