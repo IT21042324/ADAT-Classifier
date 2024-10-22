@@ -1,8 +1,8 @@
-import { useCamera } from "../hook/useCamera";
-import { useImageUpload } from "../hook/useImageUpload";
+import { useCamera } from "./useCamera";
+import { useImageUpload } from "./useImageUpload";
 
 // Custom hook to manage image upload from both camera and file input
-export const HandleImageUpload = () => {
+export const useHandleImageUpload = () => {
   // Use the image upload logic from file input
   const {
     image: fileImage,

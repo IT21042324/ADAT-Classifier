@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaInstalod } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
 import { MdAddAPhoto, MdAddPhotoAlternate } from "react-icons/md";
 import { TbCaptureFilled } from "react-icons/tb";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import Webcam from "react-webcam";
+import { useHandleImageUpload } from "../hook/useHandleImageUpload";
 import { ClassificationResult } from "./ClassificationResult";
-import { HandleImageUpload } from "./HandleImageUpload";
 import styles from "./ImageClassifier.module.css";
 
 // Main Image Classifier Component
@@ -28,7 +28,7 @@ export const ImageClassifier = () => {
     handleClassifyImage,
     handleCameraIconClick,
     capturePhoto,
-  } = HandleImageUpload();
+  } = useHandleImageUpload();
 
   // Handle click on icon to upload or capture photo
   const handleIconClick = () => {

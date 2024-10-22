@@ -25,7 +25,7 @@ export const dropDownItems = [
 export const titleDropdownItems = [
   {
     icon: <RiAiGenerate className={styles.titleIcon} />,
-    title: "ADAT SynthGen",
+    title: "SynthGen",
     description: "Generate Synthetic Acne Images",
     navigate: "/synth",
   },
