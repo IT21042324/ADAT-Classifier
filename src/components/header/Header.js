@@ -142,15 +142,20 @@ export const Header = () => {
 
         {isAvatarClicked && (
           <div className={styles.avatarDropdown}>
-            {dropDownItems.map((item) => {
+            {dropDownItems.map((item, index) => {
               return (
-                <div
-                  key={item.text}
-                  className={styles.avatarDropdownItem}
-                  onClick={() => handleHeaderFunctions(item.function)}
-                >
-                  {item.icon}
-                  {item.text}
+                <div key={item.text}>
+                  {index === dropDownItems.length - 1 && (
+                    <hr className={styles.hr} />
+                  )}{" "}
+                  {/* Add <hr> before the last item */}
+                  <div
+                    className={styles.avatarDropdownItem}
+                    onClick={() => handleHeaderFunctions(item.function)}
+                  >
+                    {item.icon}
+                    {item.text}
+                  </div>
                 </div>
               );
             })}

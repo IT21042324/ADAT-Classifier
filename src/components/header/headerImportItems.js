@@ -6,11 +6,11 @@ import { RiAiGenerate } from "react-icons/ri";
 import styles from "./header.module.css";
 
 export const dropDownItems = [
-  {
-    text: "Profile",
-    icon: <CgProfile className={styles.avatarDropdownIcon} />,
-    function: "None",
-  },
+  // {
+  //   text: "Profile",
+  //   icon: <CgProfile className={styles.avatarDropdownIcon} />,
+  //   function: "None",
+  // },
   {
     text: "Settings",
     icon: <IoSettings className={styles.avatarDropdownIcon} />,
