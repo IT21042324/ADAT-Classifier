@@ -5,7 +5,7 @@ import { MdAddAPhoto, MdAddPhotoAlternate } from "react-icons/md";
 import { TbCaptureFilled } from "react-icons/tb";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import Webcam from "react-webcam";
-import { useHandleImageUpload } from "../hook/useHandleImageUpload";
+import { useHandleImageUpload } from "../useHook/useHandleImageUpload";
 import { ClassificationResult } from "./ClassificationResult";
 import styles from "./ImageClassifier.module.css";
 

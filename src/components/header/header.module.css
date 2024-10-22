@@ -170,9 +170,8 @@
 .avatarContainer .avatarDropdown .hr {
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: #b4b4b4;
     margin: 4px 0;
-
 }
 
 @media screen and (max-width: 400px) {

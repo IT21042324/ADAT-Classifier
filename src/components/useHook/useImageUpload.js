@@ -10,10 +10,19 @@ export const useImageUpload = () => {
   // Handle image upload via file input
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    if (file) {
+
+    // Validate file type
+    const validImageTypes = ["image/jpeg", "image/png", "image/webp"];
+    if (file && validImageTypes.includes(file.type)) {
       const reader = new FileReader();
       reader.onload = (e) => setImage(e.target.result); // Convert image to base64
       reader.readAsDataURL(file);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Invalid file type",
+        text: "Please upload a valid image (JPEG, PNG, or WebP).",
+      });
     }
   };
 
