@@ -11,7 +11,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 
 const LoginSignup = () => {
   const [action, setAction] = useState("Login");
-  const [authError, setAuthError] = useState("");
+  const [authError, setAuthError] = useState(""); // Combine validation and Firebase errors
   const [loading, setLoading] = useState(false); // New loading state
 
   const usernameRef = useRef(null); // Only used for Sign Up
@@ -22,10 +22,51 @@ const LoginSignup = () => {
   const { login } = useAuthContextProvider(); // Get login action from AuthContext
   const navigate = useNavigate();
 
+  const validateInputs = () => {
+    let errors = [];
+
+    // Validate Email
+    const emailValue = emailRef.current.value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValue) {
+      errors.push("Email required");
+    } else if (!emailRegex.test(emailValue)) {
+      errors.push("Invalid email");
+    }
+
+    // Validate Password
+    const passwordValue = passwordRef.current.value;
+    if (!passwordValue) {
+      errors.push("Password required");
+    } else if (passwordValue.length < 6) {
+      errors.push("Password too short");
+    }
+
+    // Validate Username (only for Sign Up)
+    if (action === "Sign Up") {
+      const usernameValue = usernameRef.current.value;
+      if (!usernameValue) {
+        errors.push("Username required");
+      } else if (usernameValue.length < 3) {
+        errors.push("Username too short");
+      }
+    }
+
+    if (errors.length > 0) {
+      setAuthError(errors.join(". ")); // Display all errors in the same place
+      return false;
+    }
+
+    setAuthError(""); // Clear errors if no validation issues
+    return true;
+  };
+
   // Handle Signup Action
   const handleSignupClick = async (e) => {
     e.preventDefault();
     setAuthError(""); // Reset any previous errors
+    if (!validateInputs()) return; // Stop if validation fails
+
     setLoading(true); // Start loading when the action is triggered
     try {
       const user = await handleSignup(
@@ -50,7 +91,7 @@ const LoginSignup = () => {
       // Navigate after successful signup
       navigate("/classify", { replace: true });
     } catch (error) {
-      setAuthError(error.message);
+      setAuthError(error.message); // Show Firebase auth errors
     } finally {
       setLoading(false); // Stop loading after the process is complete
     }
@@ -60,6 +101,8 @@ const LoginSignup = () => {
   const handleLoginClick = async (e) => {
     e.preventDefault();
     setAuthError(""); // Reset any previous errors
+    if (!validateInputs()) return; // Stop if validation fails
+
     setLoading(true); // Start loading when the action is triggered
     try {
       const user = await handleLogin(
@@ -77,7 +120,7 @@ const LoginSignup = () => {
 
       navigate("/classify", { replace: true });
     } catch (error) {
-      setAuthError(error.message);
+      setAuthError(error.message); // Show Firebase auth errors
     } finally {
       setLoading(false); // Stop loading after the process is complete
     }
@@ -130,6 +173,7 @@ const LoginSignup = () => {
           />
         </div>
 
+        {/* Display all errors (validation + Firebase auth errors) */}
         {authError && (
           <div className={styles.errorMessage}>
             <GiSplitCross className={styles.iconStyle} />
