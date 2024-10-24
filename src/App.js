@@ -5,49 +5,39 @@ import {
   BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
-import Home from "./components/Home/Home";
-import LoginSignup from "./components/LoginAndSignup/LoginSignup";
 import useAuthContextProvider from "./components/context/useAuth";
-import { Synth } from "./components/Synth/Synth";
-import { Header } from "./components/header/Header";
+import { ProtectedRoutes } from "./ProtectedRoutes";
+import LoginSignup from "./components/LoginAndSignup/LoginSignup"; // Assuming you have a login/signup page
 
 function App() {
   const { cookie } = useAuthContextProvider();
 
   return (
     <Router>
-      <div className="App">
-        {/* Render Header only if the user is authenticated */}
-        {cookie && <Header />}
+      <Routes>
+        {/* Redirect the base path "/" based on the cookie */}
+        <Route
+          path="/"
+          element={
+            cookie ? (
+              <Navigate to="/classify" replace />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
 
-        <Routes>
-          {/* Default Redirect to Login */}
-          <Route path="/" element={<Navigate to="/login" replace />} />
+        {/* Public Login Route */}
+        <Route
+          path="/login"
+          element={
+            cookie ? <Navigate to="/classify" replace /> : <LoginSignup />
+          }
+        />
 
-          {/* Login and Signup Route */}
-          <Route
-            path="/login"
-            element={
-              cookie ? <Navigate to="/classify" replace /> : <LoginSignup />
-            }
-          />
-
-          {/* Protected Route for /classify */}
-          <Route
-            path="/classify"
-            element={cookie ? <Home /> : <Navigate to="/login" replace />}
-          />
-
-          {/* Protected Route for /synth */}
-          <Route
-            path="/synth"
-            element={cookie ? <Synth /> : <Navigate to="/login" replace />}
-          />
-
-          {/* Redirect unauthenticated users to login */}
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </div>
+        {/* Protected Routes */}
+        <Route path="/*" element={<ProtectedRoutes />} />
+      </Routes>
     </Router>
   );
 }

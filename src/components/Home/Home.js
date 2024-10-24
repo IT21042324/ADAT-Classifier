@@ -3,11 +3,7 @@ import { ImageClassifier } from "../ImageClassifier/ImageClassifier";
 import "./Home.css";
 
 function Home() {
-  return (
-    <>
-      <ImageClassifier />
-    </>
-  );
+  return <ImageClassifier />;
 }
 
 export default Home;
