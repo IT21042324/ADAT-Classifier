@@ -81,7 +81,13 @@ export const Header = () => {
   }, [location.pathname]); // Run whenever the route changes
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        backgroundColor:
+          location.pathname === "/classify" ? "transparent" : undefined,
+      }}
+    >
       <div
         className={styles.titleContainer}
         onClick={() => setIsTitleClicked((prev) => !prev)}

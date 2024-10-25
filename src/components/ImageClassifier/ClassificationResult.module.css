@@ -63,6 +63,7 @@
     .acneTypeGrid {
         grid-template-columns: 1fr;
         justify-items: center;
+        margin: 0;
     }
 
     .acneTypeItem {
