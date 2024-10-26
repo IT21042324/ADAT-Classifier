@@ -1,0 +1,152 @@
+.image
+{
+  height: 85%;
+  width: 100%;
+}
+
+
+
+
+ .btn
+{
+  z-index: 0  !important;
+}
+
+
+.z
+{
+  z-index: 0 !important;
+}
+
+.Pointer
+{
+  cursor: pointer;
+}
+
+.curve-2
+{
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+  border-radius: 0.25rem;
+}
+
+.txt-white {
+    color: whitesmoke;
+}
+.table {
+  border-collapse: unset !important;
+  color: #003F5C !important;
+  font-size: 1rem;
+}
+
+.bg-gray {
+  background-color: #2a7da3 !important;
+  color: #e2e2e2 !important;
+
+}
+
+
+/* .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: linear-gradient( #4675C0 , #8FC8EB);;
+  background-color: #003F5C;
+  color: whitesmoke;
+} */
+.z-1 ,.z-1:focus
+{
+  z-index: 1 !important;
+}
+
+.bg-table
+{
+  background-color: #006D90;
+}
+
+.bg-table-black
+{
+  background-color: #003F5C;
+}
+@media only screen and (min-device-width: 1000px) {
+.s-4
+{
+  font-size: 1.1rem;
+}
+}
+
+.bg-red
+{
+  background-color: #D2042D;
+}
+
+.bg-green
+{
+  background-color: #4F7942;
+}
+
+.bg-yellow
+{
+  background-color: #FFAA33;
+}
+
+/* (Result.color==='Red'?"align-middle bg-red":Result.color==="Yellow"?"align-middle bg-yellow":"align-middle bg-green") */
+
+.table-hover-red tr:hover td{
+  background-color: #D2042D;
+  color: whitesmoke;
+}
+
+
+.table-hover-yellow tr:hover td{
+  background-color: #FFAA33;
+  color: whitesmoke;
+}
+
+.table-hover-green tr:hover td{
+  background-color: #4F7942;
+  color: whitesmoke;
+}
+
+td.title
+{
+  width: 20%;
+}
+
+.color-box
+{
+  width: 8rem;
+  height: 3rem;
+  border-radius: 5%;
+  display: inline-block;
+}
+
+.color-box.red
+{
+  background-color: #D2042D;
+}
+
+.color-box.yellow
+{
+  background-color: #FFAA33;
+}
+
+.color-box.green
+{
+  background-color: #4F7942;
+}
+
+.color-td
+{
+  width:auto;
+  height: auto;
+}
+
+.gry-txt
+{
+  color: #a2a2a2;
+}
+
+.s-2
+{
+  font-size: 0.8rem;
+}

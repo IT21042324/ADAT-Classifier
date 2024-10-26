@@ -6,6 +6,9 @@ import Home from "./components/Home/Home";
 import { PageNotFound } from "./components/Home/PageNotFound";
 import { UnauthorizedEntry } from "./components/Home/UnauthorizedEntry"; // Import Unauthorized component
 import { Synth } from "./components/Synth/Synth";
+import { Severity } from "./components/Severity/severity";
+import { Result } from "postcss";
+import ResultPage from "./components/Severity/Result";
 
 export function ProtectedRoutes() {
   const { cookie } = useAuthContextProvider();
@@ -34,6 +37,28 @@ export function ProtectedRoutes() {
           element={
             cookie ? (
               <Synth />
+            ) : (
+              <UnauthorizedEntry />
+            ) /* Show Unauthorized if no cookie */
+          }
+        />
+
+        {/* Protected Route for /severity */}
+        <Route
+          path="/severity"
+          element={
+            cookie ? (
+              <Severity />
+            ) : (
+              <UnauthorizedEntry />
+            ) /* Show Unauthorized if no cookie */
+          }
+        />
+        <Route
+          path="/result"
+          element={
+            cookie ? (
+              <ResultPage />
             ) : (
               <UnauthorizedEntry />
             ) /* Show Unauthorized if no cookie */
