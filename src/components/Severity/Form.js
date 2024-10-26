@@ -5,7 +5,6 @@ import { useSeverityContext } from "../useHook/useSeverityContext";
 import CropModel from "./CropModel";
 import DrawingModel from "./drawingModel";
 import { ImageModel } from "./ImageModel";
-import { Instruction } from "./InstructionModel";
 
 export function LoadingSpinner() {
   return (
@@ -27,7 +26,6 @@ export function Form({ type }) {
     setimgDimention,
     Imageshow,
     setImageshow,
-    instruction,
     setinstuction,
     showdraw,
   } = useSeverityContext();
@@ -108,14 +106,6 @@ export function Form({ type }) {
                 </div>
               </div>
 
-              {/* {onshow && !Imageshow ? (
-                <DrawingModel
-                  UpImage={URL.createObjectURL(uploadImage)}
-                />
-              ) : (
-                ""
-              )} */}
-
               {onshow && !Imageshow && !showdraw ? (
                 <CropModel
                   UpImage={URL.createObjectURL(uploadImage)}
@@ -142,10 +132,6 @@ export function Form({ type }) {
             </form>
           </div>
         </div>
-
-        {instruction && (
-          <Instruction onshow={instruction} setWarnning={setinstuction} />
-        )}
       </div>
     </div>
   );

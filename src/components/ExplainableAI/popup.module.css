@@ -22,21 +22,27 @@
     /* Darker red on hover */
 }
 
-.modalContainer {}
+.modalContainer {
+    padding: 0;
+    margin: 0;
+    border: 2px solid white;
+}
 
 .modalContentStyle {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
     background-color: #150909c7;
     /* Changed color for the background */
     border-radius: 6px;
     box-shadow: 24px;
     padding: 16px;
 
-    height: 500px;
-    width: 650px;
-    max-width: 700px;
+    height: 100%;
+    width: 700px;
+    height: auto;
+
+    padding: 0;
+    margin: 0;
 }

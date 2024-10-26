@@ -1,16 +1,16 @@
 import { ExplainableAIPopup } from "../ExplainableAI/explainableAIPopUp";
 import { ClassificationResult } from "./ClassificationResult";
 import styles from "./ClassificationResultContainer.module.css";
-import { BiExpandAlt } from "react-icons/bi";
 
 export const ClassificationResultContainer = ({
   isLoading,
   isClassified,
   classificationResult,
+  image,
 }) => {
   return (
     <div className={styles.container}>
-      <ExplainableAIPopup />
+      <ExplainableAIPopup image={image} />
       <ClassificationResult
         isLoading={isLoading}
         isClassified={isClassified}
