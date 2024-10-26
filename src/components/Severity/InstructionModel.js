@@ -67,7 +67,9 @@ export function Instruction({ onshow, setWarnning }) {
                     <p className="fw-bold fs-4 pink"> Upload Image </p>
                     <ol className="fw-light fs-6 line-high">
                       <li>Select the Folder.</li>
-                      <li>Choose the Image</li>
+                      <li>
+                        Choose the Image <b>OR</b> Take a photo.
+                      </li>
                       <li>Allow minimum 300 X 300 Pixels image.</li>
                       <li>Choose one image at a time.</li>
                     </ol>
