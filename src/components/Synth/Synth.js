@@ -23,7 +23,12 @@ export const Synth = () => {
           </div>
         </div>
 
-        <div className="row justify-content-center bg-gray">
+        <div
+          className="row justify-content-center"
+          style={{
+            background: "#2a7da3",
+          }}
+        >
           <div className=" col-8 mb-3" style={{ color: "white" }}>
             <p className="fs-3 text-center mt-5">
               Amplifying healthcare imaging for breakthroughs that matter, with
