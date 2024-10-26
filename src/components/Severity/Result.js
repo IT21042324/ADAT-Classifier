@@ -261,7 +261,14 @@ const ResultPage = () => {
 
               {/* Most Probable Diagnosis as a Card */}
               <Col md={6}>
-                <Card style={{ marginBottom: "20px" }}>
+                <Card
+                  style={{
+                    marginTop: "40px", // Adds space above the Card
+                    marginBottom: "20px",
+                    backgroundColor: "#2b2424",
+                    color: "#A1A1A1",
+                  }}
+                >
                   <Card.Body>
                     <Card.Title>Clinical Diagnosis</Card.Title>
                     <Card.Text>
@@ -275,11 +282,19 @@ const ResultPage = () => {
             <Row>
               {/* Recommendations as a List */}
               <Col md={6}>
-                <h4>Recommendations</h4>
+                <h4 style={{ color: "#A1A1A1" }}>Recommendations</h4>
                 <ListGroup>
                   {Result.result["Recommendations"].length > 0 ? (
                     Result.result["Recommendations"].map((rec, index) => (
-                      <ListGroup.Item key={index}>{rec}</ListGroup.Item>
+                      <ListGroup.Item
+                        style={{
+                          backgroundColor: "#2b2424",
+                          color: "#A1A1A1",
+                        }}
+                        key={index}
+                      >
+                        {rec}
+                      </ListGroup.Item>
                     ))
                   ) : (
                     <ListGroup.Item>
@@ -291,11 +306,19 @@ const ResultPage = () => {
 
               {/* Self-Treatment Options as a List */}
               <Col md={6}>
-                <h4>Self-Treatment Options</h4>
+                <h4 style={{ color: "#A1A1A1" }}>Self-Treatment Options</h4>
                 <ListGroup>
                   {Result.result["Self-Treatment Options"].map(
                     (option, index) => (
-                      <ListGroup.Item key={index}>{option}</ListGroup.Item>
+                      <ListGroup.Item
+                        style={{
+                          backgroundColor: "#2b2424",
+                          color: "#A1A1A1",
+                        }}
+                        key={index}
+                      >
+                        {option}
+                      </ListGroup.Item>
                     )
                   )}
                 </ListGroup>
