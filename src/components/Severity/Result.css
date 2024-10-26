@@ -6,20 +6,20 @@
     width: 100%;
     height: 100%;
     padding: 1rem;
-    /* border-radius: 0.5rem; */
-    /* background-color: #fff; */
-    /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
+
     transition: all 0.2s ease-in-out;
+    color: whitesmoke
 }
 
 .result_badge:hover {
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4); 
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
     transform: scale(1.05);
     border-radius: 3%;
+    color: white;
 }
 
 .result_badge:hover .result_badge__title h3 {
-    color: #000;
+    color: white;
 }
 
 .result_badge img {
@@ -32,7 +32,7 @@
 .result_badge__title h3 {
     font-size: 1.5rem;
     font-weight: 500;
-    color: rgb(109, 109, 109);
+    color: white;
     margin-top: 15px;
     text-align: center;
     transition: all 0.2s ease-in-out;
@@ -40,8 +40,7 @@
 }
 
 
-.result_txt
-{
+.result_txt {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,16 +49,13 @@
     height: 100%;
     padding: 0 1rem;
     text-align: center;
-    /* border-radius: 0.5rem; */
-    /* background-color: #fff; */
-    /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
     transition: all 0.2s ease-in-out;
 }
 
 .result_txt h3 {
     font-size: 1.5rem;
     font-weight: 500;
-    color: rgb(109, 109, 109);
+    color: white;
     text-align: center;
     transition: all 0.2s ease-in-out;
 }
@@ -69,12 +65,11 @@
     font-weight: 400;
     margin-top: 15px;
     text-align: justify;
-    color: rgb(161, 161, 161);
+    color: white;
     transition: all 0.2s ease-in-out;
 }
 
-.result_txt_title
-{
+.result_txt_title {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -82,34 +77,29 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    /* border-radius: 0.5rem; */
-    /* background-color: #fff; */
-    /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
     transition: all 0.2s ease-in-out;
 }
 
-.result_txt_title h3, h3.Ai_Results_title{
+.result_txt_title h3, h3.Ai_Results_title {
     font-size: 1.5rem;
     font-weight: 500;
-    color: rgb(109, 109, 109);
+    color: white;
     padding: 0 0.3rem;
     text-align: center;
     transition: all 0.2s ease-in-out;
 }
 
-h3.red_txt
-{
+h3.red_txt {
     color: rgb(220, 2, 2);
 }
 
-h3.green_txt
-{
+h3.green_txt {
     color: rgb(2, 220, 2);
 }
 
-h3.yellow_txt
-{
-    color: rgb(220, 220, 2);
+h3.yellow_txt {
+    color: white;
+
 }
 
 .result_txt img {
@@ -119,8 +109,7 @@ h3.yellow_txt
     object-fit: cover;
 }
 
-.Ai_Results,.Prediction_Results,.Ml_result
-{
+.Ai_Results, .Prediction_Results, .Ml_result {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -129,14 +118,11 @@ h3.yellow_txt
     align-items: center;
     padding: 0 1rem;
     text-align: center;
-    /* margin-top: 15px; */
-    /* border-radius: 0.5rem; */
-    /* background-color: #fff; */
-    /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
+
     transition: all 0.2s ease-in-out;
 }
 
-.Orignal_img{
+.Orignal_img {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -145,15 +131,12 @@ h3.yellow_txt
     align-items: center;
     padding: 0 1rem;
     text-align: center;
-    /* border-radius: 0.5rem; */
-    /* background-color: #fff; */
-    /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
+
     transition: all 0.2s ease-in-out;
 }
 
 
-.Prediction_img
-{
+.Prediction_img {
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -161,14 +144,11 @@ h3.yellow_txt
     padding: 0 1rem;
     text-align: center;
     margin-top: 15px;
-    /* border-radius: 0.5rem; */
-    /* background-color: #fff; */
-    /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
+
     transition: all 0.2s ease-in-out;
 }
 
-.Ai_Results_box
-{
+.Ai_Results_box {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -181,17 +161,15 @@ h3.yellow_txt
     transition: all 0.2s ease-in-out;
 }
 
-.Ai_Results_box_item 
-{
+.Ai_Results_box_item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  
+
 }
 
-.Ai_Results_box_item  h3 
-{
+.Ai_Results_box_item h3 {
     font-size: 1rem;
     font-weight: 500;
     color: rgb(69, 69, 69);
@@ -203,16 +181,14 @@ h3.yellow_txt
 
 
 
-.Orignal_img img,.Prediction_img img
-{
+.Orignal_img img, .Prediction_img img {
     width: 100%;
     height: 100%;
     /* border-radius: 50%; */
     object-fit: cover;
 }
 
-.Orignal_img h3,.Prediction_img h3
-{
+.Orignal_img h3, .Prediction_img h3 {
     font-size: 1.2rem;
     font-weight: 500;
     color: rgb(109, 109, 109);
@@ -221,28 +197,26 @@ h3.yellow_txt
     transition: all 0.2s ease-in-out;
 }
 
-.Ml_result button
-{
+.Ml_result button {
     font-size: large;
     font-weight: 500;
     padding: 0.5rem 1rem;
-    
+
     /* box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2); */
     transition: all 0.2s ease-in-out;
 }
 
 
-.image
-{
-  height: 85%;
-  width: 100%;
+.image {
+    height: 85%;
+    width: 100%;
 }
 
-.txt-black
-{
-    color: rgb(109, 109, 109);
+.txt-black {
+    color: white;
 }
-.btn-outline-pink{
+
+.btn-outline-pink {
     color: #DE3163;
     border-color: #DE3163;
 }

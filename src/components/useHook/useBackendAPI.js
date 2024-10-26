@@ -33,17 +33,12 @@ export const useBackendAPI = () => {
       }
     },
     preictimage_Angle: async (data) => {
-      // const headers = {
-      //   Authorization: "Bear " + getToken(),
-      //   "Content-Type": "application/json",
-      // };
       try {
         const res = await axios.post(
           BaseURL + "/prediction/predictions/angle",
           {
             data,
           }
-          // { headers: headers }
         );
         return res.data;
       } catch (err) {

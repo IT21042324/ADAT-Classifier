@@ -45,7 +45,6 @@ function SeverityContextProvider({ children }) {
       try {
         if (type === "Severity") {
           const response = await severity_Detection(data);
-          console.log(response);
           SetResult(response);
           setresponseImage(response.result["pltImage"]);
           setMaskImage(response.result["maskImage"]);
@@ -55,17 +54,16 @@ function SeverityContextProvider({ children }) {
               type: type,
             },
           });
-        } else if (type == "Explainable") {
+        } else if (type === "Explainable") {
           const response = await EAI_Detection(data);
-          console.log(response);
           SetResult(response);
           setresponseImage(response.resultex["image"]);
           setIsLoading(false);
-          navigate("/result", {
-            state: {
-              type: type,
-            },
-          });
+          // navigate("/result", {
+          //   state: {
+          //     type: type,
+          //   },
+          // });
         } else {
           const response = await Classification_Detection(data);
           console.log(response);
@@ -94,7 +92,6 @@ function SeverityContextProvider({ children }) {
 
       try {
         const response = await preictimage_Angle(data);
-        console.log(response);
         SetResult(response);
         setresponseImage(response.annotated_image);
         setIsLoading(false);

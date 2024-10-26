@@ -148,6 +148,7 @@ export const ImageClassifier = () => {
             isLoading={isLoading}
             isClassified={isClassified}
             classificationResult={classificationResult}
+            image={image}
           />
         )}
       </div>

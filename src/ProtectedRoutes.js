@@ -1,15 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import useAuthContextProvider from "./components/context/useAuth";
+import { Explainable } from "./components/ExplainableAI/Explainable";
 import { Header } from "./components/header/Header";
 import Home from "./components/Home/Home";
 import { PageNotFound } from "./components/Home/PageNotFound";
 import { UnauthorizedEntry } from "./components/Home/UnauthorizedEntry"; // Import Unauthorized component
-import { Synth } from "./components/Synth/Synth";
-import { Severity } from "./components/Severity/severity";
-import { Result } from "postcss";
 import ResultPage from "./components/Severity/Result";
-import { Explainable } from "./components/ExplainableAI/Explainable";
+import { Severity } from "./components/Severity/severity";
+import { Synth } from "./components/Synth/Synth";
 
 export function ProtectedRoutes() {
   const { cookie } = useAuthContextProvider();

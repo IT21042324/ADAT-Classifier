@@ -5,12 +5,24 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import Modal from "@mui/material/Modal";
-import * as React from "react";
+import { useEffect, useState } from "react";
+import { useSeverityContext } from "../useHook/useSeverityContext";
+import { Explainable } from "./Explainable";
 
-export function ExplainableAIPopup() {
-  const [open, setOpen] = React.useState(false);
+export function ExplainableAIPopup({ image }) {
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const { SendData } = useSeverityContext();
+
+  useEffect(() => {
+    const sendImageData = async () => {
+      await SendData(image, "Explainable");
+    };
+
+    if (image) sendImageData();
+  }, []);
 
   return (
     <div>
@@ -32,7 +44,9 @@ export function ExplainableAIPopup() {
         className={styles.modalContainer}
       >
         <Fade in={open}>
-          <Box className={styles.modalContentStyle}></Box>
+          <Box className={styles.modalContentStyle}>
+            <Explainable handleClose={handleClose} />
+          </Box>
         </Fade>
       </Modal>
     </div>
