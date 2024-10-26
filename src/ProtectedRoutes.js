@@ -9,6 +9,7 @@ import { Synth } from "./components/Synth/Synth";
 import { Severity } from "./components/Severity/severity";
 import { Result } from "postcss";
 import ResultPage from "./components/Severity/Result";
+import { Explainable } from "./components/ExplainableAI/Explainable";
 
 export function ProtectedRoutes() {
   const { cookie } = useAuthContextProvider();
@@ -49,6 +50,18 @@ export function ProtectedRoutes() {
           element={
             cookie ? (
               <Severity />
+            ) : (
+              <UnauthorizedEntry />
+            ) /* Show Unauthorized if no cookie */
+          }
+        />
+
+        {/* Protected Route for /xai */}
+        <Route
+          path="/explainableai"
+          element={
+            cookie ? (
+              <Explainable />
             ) : (
               <UnauthorizedEntry />
             ) /* Show Unauthorized if no cookie */
