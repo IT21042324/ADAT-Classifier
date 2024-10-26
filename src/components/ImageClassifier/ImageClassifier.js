@@ -8,6 +8,7 @@ import Webcam from "react-webcam";
 import { useHandleImageUpload } from "../useHook/useHandleImageUpload";
 import { ClassificationResult } from "./ClassificationResult";
 import styles from "./ImageClassifier.module.css";
+import { ClassificationResultContainer } from "./ClassificationResultContainer";
 
 // Main Image Classifier Component
 export const ImageClassifier = () => {
@@ -144,7 +145,7 @@ export const ImageClassifier = () => {
         </div>
 
         {classificationResult && (
-          <ClassificationResult
+          <ClassificationResultContainer
             isLoading={isLoading}
             isClassified={isClassified}
             classificationResult={classificationResult}
