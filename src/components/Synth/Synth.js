@@ -5,7 +5,7 @@ export const Synth = () => {
     <header className="App-header bg-white">
       <div className="container mt-5">
         <div className="row mb-5">
-          <div className=" col-8 mb-3">
+          <div className=" col-8 mb-3" style={{ color: "white" }}>
             <p className="fs-1">
               Overcoming Data Limitations & Biases with Synthetic Image Data
             </p>
@@ -24,7 +24,7 @@ export const Synth = () => {
         </div>
 
         <div className="row justify-content-center bg-gray">
-          <div className=" col-8 mb-3">
+          <div className=" col-8 mb-3" style={{ color: "white" }}>
             <p className="fs-3 text-center mt-5">
               Amplifying healthcare imaging for breakthroughs that matter, with
               SynthGen's AI that understands life's nuances.
@@ -33,7 +33,7 @@ export const Synth = () => {
         </div>
 
         <div className="row justify-content-center mt-5 mb-5">
-          <div className="text-center fs-2">
+          <div className="text-center fs-2" style={{ color: "white" }}>
             Enhancing Imaging Accuracy and Efficiency
           </div>
           <div className="col-3 mt-5">
@@ -87,14 +87,17 @@ export const Synth = () => {
         </div>
 
         <div className="row justify-content-flex-start mb-5">
-          <div className="col-6">
+          <div className="col-6" style={{ color: "white" }}>
             <p className="fs-1">Proven Result: SynthGen </p>
           </div>
         </div>
 
         <div className="row justify-content-center mb-5">
           <div className="col-3">
-            <div className="row justify-content-center mb-5">
+            <div
+              className="row justify-content-center mb-5"
+              style={{ height: "250px" }}
+            >
               <div className="card h-100">
                 <div className="card-body">
                   <h5 className="card-title blue-color">Challenge</h5>
@@ -105,7 +108,10 @@ export const Synth = () => {
                 </div>
               </div>
             </div>
-            <div className="row justify-content-center mb-5">
+            <div
+              className="row justify-content-center mb-5"
+              style={{ height: "250px" }}
+            >
               <div className="card h-100">
                 <div className="card-body">
                   <h5 className="card-title blue-color">Solution</h5>
@@ -118,7 +124,7 @@ export const Synth = () => {
               </div>
             </div>
           </div>
-          <div className="col-3">
+          <div className="col-3" style={{ height: "550px" }}>
             <div className="card h-100">
               <div className="card-body">
                 <h5 className="card-title blue-color mb-5">Result</h5>
@@ -141,7 +147,10 @@ export const Synth = () => {
           </div>
         </div>
 
-        <div className="row justify-content-center mt-5">
+        <div
+          className="row justify-content-center mt-5"
+          style={{ color: "white" }}
+        >
           <div className="col-8 text-center">
             <p className="fs-5">
               If you require access to the synthetic acne images used to train
