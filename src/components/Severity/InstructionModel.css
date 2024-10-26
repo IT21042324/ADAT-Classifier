@@ -1,0 +1,37 @@
+.red
+{
+    color: #F50057;
+}
+
+.bg-white{
+    background-color:  #D0C8BB;
+}
+.carousel-indicators { display: none; }
+
+.blue
+{
+    color: #4257f5;
+}
+
+.pink
+{
+    color: #DE3163;
+}
+.line-high
+{
+    line-height: 35px;
+}
+
+.body-high
+{
+    height: 100%;
+}
+
+@media only screen and (max-device-width: 800px) {
+    .body-high
+    {
+        height: 120vw;
+        overflow-y: scroll;
+    }
+
+}

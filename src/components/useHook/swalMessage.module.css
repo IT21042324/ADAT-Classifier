@@ -1,0 +1,26 @@
+.uploadedImage {
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 150px;
+    min-height: 150px;
+}
+
+.qualityScore {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.confirmButton {
+    width: 100%;
+    background-color: #2a2a2a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.confirmButton:hover {
+    background-color: #4a4a4a;
+}
