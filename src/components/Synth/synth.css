@@ -1,142 +1,136 @@
 .box_case-study.image1 {
-    background-image: url(https://media.allure.com/photos/59d409f6374106159a3bd680/1:1/w_1440,h_1440,c_limit/lede.jpg);
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+  background-image: url(https://media.allure.com/photos/59d409f6374106159a3bd680/1:1/w_1440,h_1440,c_limit/lede.jpg);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
 
 .box_case-study.image2 {
-    background-image: url('../../assets/synth.png');
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+  background-image: url("../../assets/synth.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 550px;
 }
 
 .sv-original-tag {
-    color: var(--text-black);
-    text-transform: uppercase;
-    background-color: rgba(255, 255, 255, .85);
-    border-radius: .8rem;
-    padding: .7rem 1rem;
-    font-size: .8rem;
-    font-weight: 500;
-    width: 'fit-content';
+  color: var(--text-black);
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 0.8rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  width: "fit-content";
 }
 
 .App {
-    text-align: start;
+  text-align: start;
 }
 
 .App-logo {
-    height: 3.2rem;
-    width: auto;
-    pointer-events: none;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    margin-bottom: 1rem;
+  height: 3.2rem;
+  width: auto;
+  pointer-events: none;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  margin-bottom: 1rem;
 }
 
-
-
 .App-header {
-    background-color: #FFD4DF;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: baseline;
-    font-size: calc(10px + 2vmin);
-    color: rgb(7, 7, 7);
-    /* filter: blur(8px);
+  background-color: #ffd4df;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  font-size: calc(10px + 2vmin);
+  color: rgb(7, 7, 7);
+  /* filter: blur(8px);
     -webkit-filter: blur(8px); */
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 .bg-white {
-    background-color: #ffff !important;
+  background-color: #150909c7 !important;
 }
 
 .bg-gray {
-    background-color: rgb(211, 211, 211) !important;
+  background-color: rgb(211, 211, 211) !important;
 }
 
 .Form-image {
-    background-color: #007bff;
-    color: #011525;
+  background-color: #007bff;
+  color: #011525;
 }
 
 .blue-color {
-    color: #2a7da3 !important;
+  color: #2a7da3 !important;
 }
 
 .txt {
-    align-items: center;
-    text-align: center;
+  align-items: center;
+  text-align: center;
 }
 
-.txt>.fs-4 {
-    font-weight: 300;
+.txt > .fs-4 {
+  font-weight: 300;
 }
 
 .spinner-container {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(215, 215, 215, 0.8);
-    backdrop-filter: blur(3px);
-    z-index: 2;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(215, 215, 215, 0.8);
+  backdrop-filter: blur(3px);
+  z-index: 2;
 }
 
 .loading-spinner {
-    width: 10vw;
-    height: 10vw;
-    border: 10px solid #f3f3f3;
-    /* Light grey */
-    border-top: 10px solid #4257f5;
-    /* Black */
-    border-radius: 50%;
-    animation: spinner 1.5s linear infinite;
+  width: 10vw;
+  height: 10vw;
+  border: 10px solid #f3f3f3;
+  /* Light grey */
+  border-top: 10px solid #4257f5;
+  /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
 }
 
 @keyframes spinner {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-
 @media only screen and (max-device-width: 800px) {
+  .loading-spinner {
+    width: 15vw;
+    height: 15vw;
+  }
 
-    .loading-spinner {
-        width: 15vw;
-        height: 15vw;
-    }
+  .App-logo {
+    height: 4.5rem;
+    width: auto;
+  }
 
-    .App-logo {
-        height: 4.5rem;
-        width: auto;
+  .fs-3 {
+    font-size: calc(1.2rem + 0.6vw) !important;
+  }
 
-    }
-
-    .fs-3 {
-        font-size: calc(1.2rem + .6vw) !important;
-    }
-
-    .fs-5 {
-        font-size: 1.2rem !important;
-    }
-
+  .fs-5 {
+    font-size: 1.2rem !important;
+  }
 }
