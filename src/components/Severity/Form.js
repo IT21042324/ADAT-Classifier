@@ -81,6 +81,8 @@ export function Form({ type }) {
     };
   }, []);
 
+  console.log("from Form", imgDimention);
+
   return (
     <div className="container">
       <div className="row justify-content-center">

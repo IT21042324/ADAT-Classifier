@@ -166,9 +166,9 @@ function DrawingModel({ UpImage }) {
                 lg={2}
                 className="mt-2 align-items-center justify-content-center  d-flex flex-column"
               >
-                <div class="d-grid gap-2 col-6 mx-auto">
+                <div className="d-grid gap-2 col-6 mx-auto">
                   <button
-                    class="btn btn-outline-pink"
+                    className="btn btn-outline-pink"
                     type="button"
                     onClick={handleClear}
                   >
@@ -176,7 +176,7 @@ function DrawingModel({ UpImage }) {
                   </button>
 
                   <button
-                    class="btn btn-outline-pink"
+                    className="btn btn-outline-pink"
                     type="button"
                     onClick={handleReset}
                   >
@@ -184,7 +184,7 @@ function DrawingModel({ UpImage }) {
                   </button>
 
                   <button
-                    class="btn btn-outline-pink"
+                    className="btn btn-outline-pink"
                     type="button"
                     onClick={handleUndo}
                   >
@@ -192,7 +192,7 @@ function DrawingModel({ UpImage }) {
                   </button>
 
                   <button
-                    class="btn btn-outline-pink"
+                    className="btn btn-outline-pink"
                     type="button"
                     onClick={handleRedo}
                   >

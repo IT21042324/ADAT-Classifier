@@ -155,7 +155,7 @@ function CropModel({ UpImage, type }) {
                       crop={crop}
                       onChange={(crop) => setCrop(crop)}
                       onComplete={GetCroppedImg}
-                      className="rounded  responsive-img bg-blue img-border"
+                      className="rounded responsive-img bg-blue img-border"
                       style={{ height: imagehight }}
                       keepSelection={true}
                       minHeight={imagehight / 2.5}

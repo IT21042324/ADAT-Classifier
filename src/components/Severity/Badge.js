@@ -4,7 +4,7 @@ export const Badge = ({ icon, badgeName, active, color }) => {
   return (
     <div className={active ? "badge active" : "badge"}>
       <div className={"badge-icon " + color}>
-        <span class="material-icons icon-size">{icon}</span>
+        <span className="material-icons icon-size">{icon}</span>
       </div>
       <div className={"badge-name " + color}>{badgeName}</div>
     </div>

@@ -6,9 +6,8 @@ import { TbCaptureFilled } from "react-icons/tb";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import Webcam from "react-webcam";
 import { useHandleImageUpload } from "../useHook/useHandleImageUpload";
-import { ClassificationResult } from "./ClassificationResult";
-import styles from "./ImageClassifier.module.css";
 import { ClassificationResultContainer } from "./ClassificationResultContainer";
+import styles from "./ImageClassifier.module.css";
 
 // Main Image Classifier Component
 export const ImageClassifier = () => {
