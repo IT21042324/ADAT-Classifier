@@ -18,7 +18,7 @@ export const Synth = () => {
           </div>
           <div className="col-4 ">
             <div className="box_case-study image1">
-              <div class="sv-original-tag">original</div>
+              <div className="sv-original-tag">original</div>
             </div>
           </div>
         </div>
@@ -37,10 +37,12 @@ export const Synth = () => {
             Enhancing Imaging Accuracy and Efficiency
           </div>
           <div className="col-3 mt-5">
-            <div class="card">
-              <div class="card-body mt-5">
-                <h5 class="card-title mt-5 blue-color">Real-World Accuracy</h5>
-                <p class="card-text mt-3 fs-6 fw-lighter">
+            <div className="card">
+              <div className="card-body mt-5">
+                <h5 className="card-title mt-5 blue-color">
+                  Real-World Accuracy
+                </h5>
+                <p className="card-text mt-3 fs-6 fw-lighter">
                   SynthGen captures what real health conditions look like,
                   making the synthetic data more accurate.
                 </p>
@@ -48,10 +50,10 @@ export const Synth = () => {
             </div>
           </div>
           <div className="col-3 mt-5">
-            <div class="card">
-              <div class="card-body mt-5">
-                <h5 class="card-title mt-5 blue-color">Bias Reduction</h5>
-                <p class="card-text mt-3 fs-6 fw-lighter">
+            <div className="card">
+              <div className="card-body mt-5">
+                <h5 className="card-title mt-5 blue-color">Bias Reduction</h5>
+                <p className="card-text mt-3 fs-6 fw-lighter">
                   Generate images for rare disease presentations, rare diseases,
                   and underrepresented groups.
                 </p>
@@ -59,10 +61,12 @@ export const Synth = () => {
             </div>
           </div>
           <div className="col-3 mt-5">
-            <div class="card">
-              <div class="card-body mt-5">
-                <h5 class="card-title mt-5 blue-color">Customizable Data</h5>
-                <p class="card-text mt-3 fs-6 fw-lighter">
+            <div className="card">
+              <div className="card-body mt-5">
+                <h5 className="card-title mt-5 blue-color">
+                  Customizable Data
+                </h5>
+                <p className="card-text mt-3 fs-6 fw-lighter">
                   Adjust the data to suit your requirements, such as skin color
                   in dermatology.
                 </p>
@@ -70,10 +74,10 @@ export const Synth = () => {
             </div>
           </div>
           <div className="col-3 mt-5">
-            <div class="card">
-              <div class="card-body mt-5">
-                <h5 class="card-title mt-5 blue-color">Data Ownership</h5>
-                <p class="card-text mt-3 fs-6 fw-lighter">
+            <div className="card">
+              <div className="card-body mt-5">
+                <h5 className="card-title mt-5 blue-color">Data Ownership</h5>
+                <p className="card-text mt-3 fs-6 fw-lighter">
                   You own the data outright, with no worries about privacy
                   issues, patient consent or legal hassles.
                 </p>
@@ -91,10 +95,10 @@ export const Synth = () => {
         <div className="row justify-content-center mb-5">
           <div className="col-3">
             <div className="row justify-content-center mb-5">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title blue-color">Challenge</h5>
-                  <p class="card-text mt-3 fs-6 fw-lighter mt-5">
+              <div className="card h-100">
+                <div className="card-body">
+                  <h5 className="card-title blue-color">Challenge</h5>
+                  <p className="card-text mt-3 fs-6 fw-lighter mt-5">
                     Healthcare data is often biased, lacking diversity and rare
                     disease representation, limiting diagnostic accuracy.
                   </p>
@@ -102,10 +106,10 @@ export const Synth = () => {
               </div>
             </div>
             <div className="row justify-content-center mb-5">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title blue-color">Solution</h5>
-                  <p class="card-text mt-3 fs-6 fw-lighter mt-5">
+              <div className="card h-100">
+                <div className="card-body">
+                  <h5 className="card-title blue-color">Solution</h5>
+                  <p className="card-text mt-3 fs-6 fw-lighter mt-5">
                     SynthGen creates diverse, realistic synthetic images,
                     reducing bias and enhancing model precision by covering
                     underrepresented conditions.
@@ -115,13 +119,15 @@ export const Synth = () => {
             </div>
           </div>
           <div className="col-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title blue-color mb-5">Result</h5>
+            <div className="card h-100">
+              <div className="card-body">
+                <h5 className="card-title blue-color mb-5">Result</h5>
 
-                <h5 class="card-title blue-color display-3 text-center">84%</h5>
+                <h5 className="card-title blue-color display-3 text-center">
+                  84%
+                </h5>
                 <p className="text-center">Accuracy</p>
-                <p class="card-text mt-3 fs-6 fw-lighter mt-5">
+                <p className="card-text mt-3 fs-6 fw-lighter mt-5">
                   Significant accuracy gains, ensuring more precise diagnostics
                   while addressing data privacy and bias concerns.
                 </p>
@@ -130,7 +136,7 @@ export const Synth = () => {
           </div>
           <div className="col-6">
             <div className="box_case-study image2">
-              <div class="sv-original-tag">Synthetic</div>
+              <div className="sv-original-tag">Synthetic</div>
             </div>
           </div>
         </div>

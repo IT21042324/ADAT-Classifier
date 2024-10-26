@@ -93,7 +93,7 @@ export function Instruction({ onshow, setWarnning }) {
                     className="justify-content-center align-items-center mt-3"
                   >
                     <p className="fw-bold fs-4 pink"> Capture Image </p>
-                    <ol class="fw-light fs-6 line-high">
+                    <ol className="fw-light fs-6 line-high">
                       <li>
                         Take the photo about 4 inches away from the problem
                         area.
@@ -124,7 +124,7 @@ export function Instruction({ onshow, setWarnning }) {
                     className="justify-content-center align-items-center mt-3"
                   >
                     <p className="fw-bold fs-4 pink"> Crop Image </p>
-                    <ol class="fw-light fs-6 line-high">
+                    <ol className="fw-light fs-6 line-high">
                       <li>Cropping Window is popup.</li>
                       <li>Crop only symptom area.</li>
                       <li>Cropped area is previewed at the right corner.</li>
@@ -152,7 +152,7 @@ export function Instruction({ onshow, setWarnning }) {
                     className="justify-content-center align-items-center mt-3"
                   >
                     <p className="fw-bold fs-4 pink"> Generate Result </p>
-                    <ol class="fw-light fs-6 line-high">
+                    <ol className="fw-light fs-6 line-high">
                       <li>The result is Generated Based on Cropped area.</li>
                       <li>
                         The predicted Image is Present in the Right corner.

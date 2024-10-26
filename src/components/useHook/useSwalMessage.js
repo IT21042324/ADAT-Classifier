@@ -8,10 +8,10 @@ export const useSwalMessage = () => {
         title: "Poor Image Quality Detected",
         html: `
           <p>Please upload a clearer image!</p>
-          <img id="uploadedImage" src="${extractedFaceImage}" alt="Low Quality Image" class="${styles.uploadedImage}" style="max-width: 100%; height: auto;"/>
+          <img id="uploadedImage" src="${extractedFaceImage}" alt="Low Quality Image" className="${styles.uploadedImage}" style="max-width: 100%; height: auto;"/>
         `,
         footer: `
-          <p><span class="${
+          <p><span className="${
             styles.qualityScore
           }">The image quality score is <strong>${quality_score.toFixed(
           2
