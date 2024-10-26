@@ -7,27 +7,3 @@
   margin: 0;
   gap: -50px;
 }
-
-.explainButton {
-  position: relative;
-  top: 0;
-  left: 92%;
-  background-color: #ffcccc;
-  /* Light red background */
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Add a subtle shadow for depth */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 40px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.explainButton:hover {
-  background-color: #ff9999;
-  /* Darker red on hover */
-}
