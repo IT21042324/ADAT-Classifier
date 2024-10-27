@@ -14,6 +14,7 @@ function SeverityContextProvider({ children }) {
 
   const [uploadImage, setUploadImage] = useState(null);
   const [responseImage, setresponseImage] = useState(null);
+  const [responseImage2, setresponseImage2] = useState(null);
   const [MaskImage, setMaskImage] = useState(null);
   const [Result, SetResult] = useState(null);
   const [onshow, setonshow] = useState(false);
@@ -60,6 +61,7 @@ function SeverityContextProvider({ children }) {
           console.log(response);
           SetResult(response);
           setresponseImage(response.resultex["image"]);
+          setresponseImage2(response.resultex["img_str"]);
           setIsLoading(false);
           // navigate("/result", {
           //   state: {
@@ -135,6 +137,8 @@ function SeverityContextProvider({ children }) {
     setshowdraw,
     SendData_angle,
     MaskImage,
+    responseImage2,
+    setresponseImage2,
     setMaskImage,
   };
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Container, ListGroup, Row, Table } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { FaFileDownload } from "react-icons/fa";
 import { Mosaic } from "react-loading-indicators";
 import { useSeverityContext } from "../useHook/useSeverityContext";
 import { BadgeCard } from "./Badge";
@@ -11,8 +11,15 @@ import jsPDF from "jspdf";
 import html2pdf from "html2pdf.js";
 
 const ResultPage = ({ handleClose, typeSetter }) => {
-  const { Result, CropImage, responseImage, setshowdraw, MaskImage } =
-    useSeverityContext();
+  const {
+    Result,
+    CropImage,
+    responseImage,
+    setshowdraw,
+    MaskImage,
+    responseImage2,
+    setResponseImage2,
+  } = useSeverityContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -83,7 +90,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
     const header = document.createElement("div");
     header.style.textAlign = "right"; // Align to the right
     header.style.marginBottom = "10px"; // Space from content
-    header.textContent = `Downloaded on: ${dateTimeString}`;
+    header.textContent = `Generated on: ${dateTimeString}`;
 
     // Append header and the modified body to the clone
     pageClone.appendChild(header);
@@ -94,7 +101,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
       filename: "full_page_capture.pdf",
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      jsPDF: { unit: "mm", format: "a3", orientation: "portrait" },
     };
 
     html2pdf().from(pageClone).set(options).save();
@@ -322,15 +329,21 @@ const ResultPage = ({ handleClose, typeSetter }) => {
       {Result?.resultex && (
         <>
           <div className="container mt-4">
-            <h3>Explanation</h3>
+            <h3 style={{ color: "#FFABB9" }}>Explanation</h3>
 
             <div className="row  justify-content-center mb-2">
               {CropImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                  <p className="text-center fs-5 txt-black">Original Image</p>
+                  <p
+                    className="text-center fs-5 txt-black"
+                    style={{ color: "#A1A1A1" }}
+                  >
+                    Original Image
+                  </p>
                   <img
                     src={CropImage}
                     id="upload"
+                    style={{ borderColor: "#FFABB9" }}
                     className="rounded float-start image result"
                     alt="Original"
                   ></img>
@@ -339,10 +352,32 @@ const ResultPage = ({ handleClose, typeSetter }) => {
 
               {responseImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                  <p className="text-center  fs-5 txt-white">Response Image</p>
+                  <p
+                    className="text-center  fs-5 txt-white"
+                    style={{ color: "#A1A1A1" }}
+                  >
+                    Response Image
+                  </p>
                   <img
                     src={"data:image/jpeg;base64," + responseImage}
                     id="upload"
+                    className="rounded float-start image result"
+                    alt="Response"
+                  ></img>
+                </div>
+              )}
+              {responseImage2 && (
+                <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
+                  <p
+                    className="text-center  fs-5 txt-black"
+                    style={{ color: "#A1A1A1" }}
+                  >
+                    Visual Saliency
+                  </p>
+                  <img
+                    src={"data:image/jpeg;base64," + responseImage2}
+                    id="upload"
+                    // style={{ marginTop: "-10px" }}
                     className="rounded float-start image result"
                     alt="Response"
                   ></img>
@@ -413,36 +448,82 @@ const ResultPage = ({ handleClose, typeSetter }) => {
           <div className="row justify-content-center">
             <div className="col-12 col-md-6 col-lg-6 my-3">
               <div className="Ml_result mb-5">
-                <button
-                  className="btn btn-outline-pink"
-                  onClick={(e) => handdleClick()}
+                <div
                   style={{
-                    backgroundColor: "#ccc", // Light grey background
-                    color: "#333", // Darker grey text color
-                    padding: "10px 30px", // Smaller padding for a smaller button
-                    border: "none", // No border
-                    borderRadius: "5px", // Rounded corners
-                    cursor: "pointer", // Pointer cursor on hover
-                    fontSize: "16px", // Slightly smaller font size
-                    transition: "background-color 0.3s, transform 0.3s", // Smooth transition
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#aaa"; // Darker grey on hover
-                    e.currentTarget.style.transform = "scale(1.05)"; // Slightly enlarge on hover
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#ccc"; // Reset background color
-                    e.currentTarget.style.transform = "scale(1)"; // Reset size
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "15px", // space between buttons
                   }}
                 >
-                  {"Try Again"}
-                </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={downloadFullPageAsPDF}
-                >
-                  Download Page as PDF
-                </button>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "50px", // space between buttons
+                    }}
+                  >
+                    <button
+                      className="btn btn-outline-pink"
+                      onClick={(e) => handdleClick()}
+                      style={{
+                        backgroundColor: "#ccc",
+                        color: "#333",
+                        padding: "10px 30px",
+                        border: "none",
+                        borderRadius: "5px",
+                        position: "relative",
+                        cursor: "pointer",
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        left: "50px",
+                        transition: "background-color 0.3s, transform 0.3s",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = "#aaa";
+                        e.currentTarget.style.transform = "scale(1.05)"; // Slightly enlarge on hover
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = "#ccc"; // Reset background color
+                        e.currentTarget.style.transform = "scale(1)"; // Reset size
+                      }}
+                    >
+                      {"Try Again"}
+                    </button>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end", // Aligns the button to the right
+                        position: "relative",
+                        left: "800px",
+                      }}
+                    >
+                      <button
+                        className="btn btn-primary"
+                        onClick={downloadFullPageAsPDF}
+                        style={{
+                          backgroundColor: "#ccc",
+                          color: "#333",
+                          padding: "10px 20px",
+                          border: "none",
+                          borderRadius: "5px",
+                          cursor: "pointer",
+                          fontSize: "16px",
+                          transition: "background-color 0.3s, transform 0.3s",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = "#aaa";
+                          e.currentTarget.style.transform = "scale(1.05)"; // Slightly enlarge on hover
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = "#ccc"; // Reset background color
+                          e.currentTarget.style.transform = "scale(1)"; // Reset size
+                        }}
+                      >
+                        <FaFileDownload size={30} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -146,7 +146,10 @@ function CropModel({ UpImage, type }) {
               >
                 {UpImage && (
                   <div className="align-center">
-                    <p className="text-center fs-4 blue txt-white">
+                    <p
+                      className="text-center fs-4 blue txt-white"
+                      style={{ color: "#A1A1A1" }}
+                    >
                       Original Image
                     </p>
                     <ReactCrop
@@ -156,7 +159,7 @@ function CropModel({ UpImage, type }) {
                       onChange={(crop) => setCrop(crop)}
                       onComplete={GetCroppedImg}
                       className="rounded responsive-img bg-blue img-border"
-                      style={{ height: imagehight }}
+                      style={{ height: imagehight, borderColor: "#FF8DA1" }}
                       keepSelection={true}
                       minHeight={imagehight / 2.5}
                       minWidth={imagehight / 2.5}
@@ -168,13 +171,18 @@ function CropModel({ UpImage, type }) {
               <Col s={12} md={5} lg={4} className="mt-2">
                 {resultIMG != null ? (
                   <div className="preview-section">
-                    <p className="text-center fs-4 blue txt-white">Preview</p>
+                    <p
+                      className="text-center fs-4 blue txt-white"
+                      style={{ color: "#A1A1A1" }}
+                    >
+                      Preview
+                    </p>
                     <img
                       src={resultIMG}
                       id="upload"
                       className="rounded cropimg img-border"
                       alt="Preview"
-                      style={{ maxHeight: imagehight }}
+                      style={{ maxHeight: imagehight, borderColor: "#FF8DA1" }}
                     ></img>
                   </div>
                 ) : (
@@ -192,7 +200,11 @@ function CropModel({ UpImage, type }) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button className="btn-pink" onClick={onResult}>
+          <Button
+            className="btn-pink"
+            onClick={onResult}
+            style={{ backgroundColor: "	#ff5588" }}
+          >
             Generate Results
           </Button>
         </Modal.Footer>

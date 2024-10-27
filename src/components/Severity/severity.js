@@ -16,8 +16,13 @@ export const Severity = () => {
           <div className="row justify-content-center">
             <div className="txt mb-3">
               {/* <p className="fs-5">Acne Expert V1.0</p> */}
-              <p className="fs-5 fw-lighter">
-                Precise Diagnosis of Acne and Related Skin Issues
+              <p
+                className="fs-5 fw-lighter"
+                style={{
+                  color: "#ffe6e6",
+                }}
+              >
+                Precise Diagnosis of Acne Spread & Severity
               </p>
             </div>
           </div>
