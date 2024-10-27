@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { Card, Col, Container, ListGroup, Row, Table } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { Mosaic } from "react-loading-indicators";
 import { useSeverityContext } from "../useHook/useSeverityContext";
 import { BadgeCard } from "./Badge";
 import "./Result.css";
 
-const ResultPage = ({ handleClose }) => {
+const ResultPage = ({ handleClose, typeSetter }) => {
   const { Result, CropImage, responseImage, setshowdraw, MaskImage } =
     useSeverityContext();
   const navigate = useNavigate();
@@ -48,6 +49,20 @@ const ResultPage = ({ handleClose }) => {
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
+        {typeSetter?.type === "Explainable" &&
+          !Result?.result &&
+          !responseImage && (
+            <div
+              style={{
+                position: "absolute",
+                top: "48%",
+                left: "45%",
+              }}
+            >
+              <Mosaic color="#9fa49f" size="large" text="" textColor="" />
+            </div>
+          )}
+
         {Result?.result && (
           <>
             <div className="row justify-content-center align-item-center"></div>
@@ -310,18 +325,20 @@ const ResultPage = ({ handleClose }) => {
         </>
       )}
 
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-6 col-lg-6 my-3">
-          <div className="Ml_result mb-5">
-            <button
-              className="btn btn-outline-pink"
-              onClick={(e) => handdleClick()}
-            >
-              {"Try Again"}
-            </button>
+      {(Result?.result || responseImage) && (
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-6 col-lg-6 my-3">
+            <div className="Ml_result mb-5">
+              <button
+                className="btn btn-outline-pink"
+                onClick={(e) => handdleClick()}
+              >
+                {"Try Again"}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

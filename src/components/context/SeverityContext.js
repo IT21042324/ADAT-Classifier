@@ -29,6 +29,7 @@ function SeverityContextProvider({ children }) {
   const [showselect, setshowselect] = useState(false);
   const [selected, setSelected] = useState(3);
   const [showdraw, setshowdraw] = useState(false);
+
   const navigate = useNavigate();
 
   const BASE_URL = "http://127.0.0.1:5000/predictions";

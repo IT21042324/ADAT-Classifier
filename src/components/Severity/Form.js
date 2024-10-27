@@ -5,6 +5,7 @@ import { useSeverityContext } from "../useHook/useSeverityContext";
 import CropModel from "./CropModel";
 import DrawingModel from "./drawingModel";
 import { ImageModel } from "./ImageModel";
+import { Mosaic } from "react-loading-indicators";
 
 export function LoadingSpinner() {
   return (
@@ -28,6 +29,7 @@ export function Form({ type }) {
     setImageshow,
     setinstuction,
     showdraw,
+    isLoading,
   } = useSeverityContext();
 
   // validate the images
@@ -86,50 +88,66 @@ export function Form({ type }) {
       <div className="row justify-content-center">
         <div className="row justify-content-center">
           <div className="col-sm-12 col-lg-8 col-md-6 align-item-center justify-content-center">
-            <form>
-              <div className="col-sm-12 col-lg-12 col-md-12 align-self-center">
-                <label
-                  htmlFor="Image"
-                  className="form-label jutify-content-start s-4"
-                >
-                  Upload Your Image
-                </label>
-                <div className="input-group mb-3">
-                  <input
-                    type="file"
-                    className="form-control z-1"
-                    id="Image"
-                    accept="image/*"
-                    aria-describedby="basic-addon3"
-                    onChange={imageChange}
-                  />
+            {isLoading ? (
+              <>
+                {isLoading && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "48%",
+                      left: "45%",
+                    }}
+                  >
+                    <Mosaic color="#9fa49f" size="large" text="" textColor="" />
+                  </div>
+                )}
+              </>
+            ) : (
+              <form>
+                <div className="col-sm-12 col-lg-12 col-md-12 align-self-center">
+                  <label
+                    htmlFor="Image"
+                    className="form-label jutify-content-start s-4"
+                  >
+                    Upload Your Image
+                  </label>
+                  <div className="input-group mb-3">
+                    <input
+                      type="file"
+                      className="form-control z-1"
+                      id="Image"
+                      accept="image/*"
+                      aria-describedby="basic-addon3"
+                      onChange={imageChange}
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {onshow && !Imageshow && !showdraw ? (
-                <CropModel
-                  UpImage={URL.createObjectURL(uploadImage)}
-                  type={type}
-                />
-              ) : (
-                ""
-              )}
+                {onshow && !Imageshow && !showdraw ? (
+                  <CropModel
+                    UpImage={URL.createObjectURL(uploadImage)}
+                    type={type}
+                  />
+                ) : (
+                  ""
+                )}
 
-              {onshow && !Imageshow && showdraw ? (
-                <DrawingModel UpImage={URL.createObjectURL(uploadImage)} />
-              ) : (
-                ""
-              )}
+                {onshow && !Imageshow && showdraw ? (
+                  <DrawingModel UpImage={URL.createObjectURL(uploadImage)} />
+                ) : (
+                  ""
+                )}
 
-              {Imageshow && !onshow ? (
-                <ImageModel
-                  ImageShow={Imageshow}
-                  ImageDimention={imgDimention}
-                />
-              ) : (
-                ""
-              )}
-            </form>
+                {Imageshow && !onshow ? (
+                  <ImageModel
+                    ImageShow={Imageshow}
+                    ImageDimention={imgDimention}
+                  />
+                ) : (
+                  ""
+                )}
+              </form>
+            )}
           </div>
         </div>
       </div>
