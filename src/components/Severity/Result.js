@@ -22,7 +22,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
   const location = useLocation();
 
   const { type } = location?.state || {};
-  const clinicalDiagnosis = Result.resultex["Clinical_diagnosis"];
+
   const [activeBadge, setActiveBadge] = useState({
     red: false,
     yellow: false,
@@ -302,7 +302,9 @@ const ResultPage = ({ handleClose, typeSetter }) => {
       {Result?.resultex && (
         <>
           <div className="container mt-4">
-            <h3 style={{ color: "#FFABB9" }}>Explanation</h3>
+            <h3 style={{ color: "#F8C8DC", textAlign: "center" }}>
+              Explanation
+            </h3>
 
             <div className="row  justify-content-center mb-2">
               {CropImage && (
@@ -329,7 +331,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
                     className="text-center  fs-5 txt-white"
                     style={{ color: "#A1A1A1" }}
                   >
-                    Response Image
+                    Attention Map
                   </p>
                   <img
                     src={"data:image/jpeg;base64," + responseImage}
@@ -340,26 +342,42 @@ const ResultPage = ({ handleClose, typeSetter }) => {
                 </div>
               )}
               {responseImage2 && (
-                <div>
-                  <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                    <p
-                      className="text-center  fs-5 txt-black"
-                      style={{ color: "#A1A1A1" }}
-                    >
-                      Visual Saliency
-                    </p>
-                    <img
-                      src={"data:image/jpeg;base64," + responseImage2}
-                      id="upload"
-                      // style={{ marginTop: "-10px" }}
-                      className="rounded float-start image result"
-                      alt="Response"
-                    ></img>
-                  </div>
-                  {clinicalDiagnosis}
+                <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
+                  <p
+                    className="text-center  fs-5 txt-black"
+                    style={{ color: "#A1A1A1" }}
+                  >
+                    Visual Saliency
+                  </p>
+                  <img
+                    src={"data:image/jpeg;base64," + responseImage2}
+                    id="upload"
+                    // style={{ marginTop: "-10px" }}
+                    className="rounded float-start image result"
+                    alt="Response"
+                  ></img>
                 </div>
               )}
             </div>
+          </div>
+          <div>
+            <Card
+              style={{
+                marginTop: "40px", // Adds space above the Card
+                marginBottom: "20px",
+                backgroundColor: "#2b2424",
+                color: "#A1A1A1",
+              }}
+            >
+              <Card.Body>
+                <Card.Title style={{ fontWeight: "bold" }}>
+                  Unraveling the Causes of Acne
+                </Card.Title>
+                <Card.Text style={{ fontSize: "20px" }}>
+                  {Result?.resultex["Clinical_diagnosis"]}
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </div>
         </>
       )}
