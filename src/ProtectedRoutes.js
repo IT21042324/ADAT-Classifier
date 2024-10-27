@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import useAuthContextProvider from "./components/context/useAuth";
-import { Explainable } from "./components/ExplainableAI/Explainable";
 import { Header } from "./components/header/Header";
 import Home from "./components/Home/Home";
 import { PageNotFound } from "./components/Home/PageNotFound";
@@ -55,17 +54,6 @@ export function ProtectedRoutes() {
           }
         />
 
-        {/* Protected Route for /xai */}
-        <Route
-          path="/explainableai"
-          element={
-            cookie ? (
-              <Explainable />
-            ) : (
-              <UnauthorizedEntry />
-            ) /* Show Unauthorized if no cookie */
-          }
-        />
         <Route
           path="/result"
           element={

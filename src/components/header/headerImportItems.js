@@ -42,11 +42,4 @@ export const titleDropdownItems = [
     description: "View Severity Report",
     navigate: "/severity",
   },
-
-  {
-    icon: <MdDocumentScanner className={styles.titleIcon} />,
-    title: "Explain Classification",
-    description: "View Explaination",
-    navigate: "/explainableAI",
-  },
 ];

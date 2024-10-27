@@ -58,19 +58,6 @@ const ResultPage = ({ handleClose, typeSetter }) => {
     }
   }, [Result]);
 
-  // const downloadFullPageAsPDF = () => {
-  //   const page = document.body;
-
-  //   const options = {
-  //     margin: 0,
-  //     filename: "full_page_capture.pdf",
-  //     image: { type: "jpeg", quality: 0.98 },
-  //     html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-  //     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-  //   };
-
-  //   html2pdf().from(page).set(options).save();
-  // };
   const downloadFullPageAsPDF = () => {
     // Get the current date and time
     const now = new Date();
@@ -98,7 +85,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
 
     const options = {
       margin: 0,
-      filename: "full_page_capture.pdf",
+      filename: "AcneIntelliScan_Severity_Report.pdf",
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
       jsPDF: { unit: "mm", format: "a3", orientation: "portrait" },
@@ -172,18 +159,6 @@ const ResultPage = ({ handleClose, typeSetter }) => {
                   ></img>
                 </div>
               )}
-
-              {/* {responseImage && (
-                <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                  <p className="text-center  fs-5 txt-black">Response Image</p>
-                  <img
-                    src={"data:image/png;base64," + responseImage}
-                    id="upload"
-                    className="rounded float-start image result"
-                    alt="Response"
-                  ></img>
-                </div>
-              )} */}
 
               {MaskImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
@@ -494,7 +469,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
                         display: "flex",
                         justifyContent: "flex-end", // Aligns the button to the right
                         position: "relative",
-                        left: "800px",
+                        left: "600px",
                       }}
                     >
                       <button
