@@ -12,8 +12,6 @@ import imageerr from "./Image.svg";
 export function ImageModel({ ImageShow, ImageDimention }) {
   const [show, setShow] = useState(ImageShow);
 
-  console.log("ImageDim", ImageDimention);
-
   const handleClose = () => {
     setShow(false);
   };

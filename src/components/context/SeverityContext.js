@@ -29,6 +29,7 @@ function SeverityContextProvider({ children }) {
   const [showselect, setshowselect] = useState(false);
   const [selected, setSelected] = useState(3);
   const [showdraw, setshowdraw] = useState(false);
+
   const navigate = useNavigate();
 
   const BASE_URL = "http://127.0.0.1:5000/predictions";
@@ -56,6 +57,7 @@ function SeverityContextProvider({ children }) {
           });
         } else if (type === "Explainable") {
           const response = await EAI_Detection(data);
+          console.log(response);
           SetResult(response);
           setresponseImage(response.resultex["image"]);
           setIsLoading(false);
@@ -66,7 +68,6 @@ function SeverityContextProvider({ children }) {
           // });
         } else {
           const response = await Classification_Detection(data);
-          console.log(response);
           SetResult(response);
           setresponseImage(response.resulClassification["image"]);
           setIsLoading(false);
@@ -76,9 +77,7 @@ function SeverityContextProvider({ children }) {
             },
           });
         }
-      } catch (ex) {
-        console.log(ex);
-      }
+      } catch (ex) {}
     }
   };
 
@@ -96,9 +95,7 @@ function SeverityContextProvider({ children }) {
         setresponseImage(response.annotated_image);
         setIsLoading(false);
         navigate("/result");
-      } catch (ex) {
-        console.log(ex);
-      }
+      } catch (ex) {}
     }
   };
 

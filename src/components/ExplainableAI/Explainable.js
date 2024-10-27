@@ -1,6 +1,8 @@
 import ResultPage from "../Severity/Result";
 
 export const Explainable = ({ handleClose }) => {
+  const typeSetter = { type: "Explainable" };
+
   return (
     <header
       className="App-header"
@@ -9,7 +11,7 @@ export const Explainable = ({ handleClose }) => {
         color: "white",
       }}
     >
-      <ResultPage handleClose={handleClose} />
+      <ResultPage handleClose={handleClose} typeSetter={typeSetter} />
     </header>
   );
 };

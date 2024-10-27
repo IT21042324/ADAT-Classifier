@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, Col, Container, ListGroup, Row, Table } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { Mosaic } from "react-loading-indicators";
 import { useSeverityContext } from "../useHook/useSeverityContext";
 import { BadgeCard } from "./Badge";
 import "./Result.css";
@@ -9,7 +10,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import html2pdf from "html2pdf.js";
 
-const ResultPage = ({ handleClose }) => {
+const ResultPage = ({ handleClose, typeSetter }) => {
   const { Result, CropImage, responseImage, setshowdraw, MaskImage } =
     useSeverityContext();
   const navigate = useNavigate();
@@ -29,6 +30,8 @@ const ResultPage = ({ handleClose }) => {
     if (type === "Severity") navigate("/severity");
     else handleClose();
   };
+
+  console.log("responseImageNow", responseImage);
 
   const changeActiveBadge = (color) => {
     if (color === "Extremely Severe") {
@@ -100,6 +103,20 @@ const ResultPage = ({ handleClose }) => {
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
+        {typeSetter?.type === "Explainable" &&
+          !Result?.result &&
+          !responseImage && (
+            <div
+              style={{
+                position: "absolute",
+                top: "48%",
+                left: "45%",
+              }}
+            >
+              <Mosaic color="#9fa49f" size="large" text="" textColor="" />
+            </div>
+          )}
+
         {Result?.result && (
           <>
             <div className="row justify-content-center align-item-center"></div>
@@ -153,7 +170,7 @@ const ResultPage = ({ handleClose }) => {
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
                   <p className="text-center  fs-5 txt-black">Response Image</p>
                   <img
-                    src={"data:image/jpeg;base64," + responseImage}
+                    src={"data:image/png;base64," + responseImage}
                     id="upload"
                     className="rounded float-start image result"
                     alt="Response"
@@ -391,39 +408,45 @@ const ResultPage = ({ handleClose }) => {
         </>
       )}
 
-      <div className="row justify-content-center">
-        <div className="col-12 col-md-6 col-lg-6 my-3">
-          <div className="Ml_result mb-5">
-            <button
-              className="btn btn-outline-pink"
-              onClick={(e) => handdleClick()}
-              style={{
-                backgroundColor: "#ccc", // Light grey background
-                color: "#333", // Darker grey text color
-                padding: "10px 30px", // Smaller padding for a smaller button
-                border: "none", // No border
-                borderRadius: "5px", // Rounded corners
-                cursor: "pointer", // Pointer cursor on hover
-                fontSize: "16px", // Slightly smaller font size
-                transition: "background-color 0.3s, transform 0.3s", // Smooth transition
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#aaa"; // Darker grey on hover
-                e.currentTarget.style.transform = "scale(1.05)"; // Slightly enlarge on hover
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#ccc"; // Reset background color
-                e.currentTarget.style.transform = "scale(1)"; // Reset size
-              }}
-            >
-              {"Try Again"}
-            </button>
-            <button className="btn btn-primary" onClick={downloadFullPageAsPDF}>
-              Download Page as PDF
-            </button>
+      {(Result?.result || responseImage) &&
+        typeSetter?.type !== "Explainable" && (
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-6 col-lg-6 my-3">
+              <div className="Ml_result mb-5">
+                <button
+                  className="btn btn-outline-pink"
+                  onClick={(e) => handdleClick()}
+                  style={{
+                    backgroundColor: "#ccc", // Light grey background
+                    color: "#333", // Darker grey text color
+                    padding: "10px 30px", // Smaller padding for a smaller button
+                    border: "none", // No border
+                    borderRadius: "5px", // Rounded corners
+                    cursor: "pointer", // Pointer cursor on hover
+                    fontSize: "16px", // Slightly smaller font size
+                    transition: "background-color 0.3s, transform 0.3s", // Smooth transition
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#aaa"; // Darker grey on hover
+                    e.currentTarget.style.transform = "scale(1.05)"; // Slightly enlarge on hover
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "#ccc"; // Reset background color
+                    e.currentTarget.style.transform = "scale(1)"; // Reset size
+                  }}
+                >
+                  {"Try Again"}
+                </button>
+                <button
+                  className="btn btn-primary"
+                  onClick={downloadFullPageAsPDF}
+                >
+                  Download Page as PDF
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )}
     </div>
   );
 };
