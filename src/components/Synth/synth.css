@@ -25,6 +25,13 @@
   width: "fit-content";
 }
 
+/* The `<div className="row justify-content-center" style={{ background: "#007bff" }}>` is
+creating a row element with its content centered horizontally on the page. The
+`justify-content-center` class is used to center the content within the row, and the
+`style={{ background: "#007bff" }}` is setting the background color of the row to a shade of
+blue (#007bff). */
+
+
 .App {
   text-align: start;
 }
@@ -73,12 +80,16 @@
   color: #2a7da3 !important;
 }
 
+.bg-blue {
+  color: #2a7da3
+}
+
 .txt {
   align-items: center;
   text-align: center;
 }
 
-.txt > .fs-4 {
+.txt>.fs-4 {
   font-weight: 300;
 }
 
