@@ -89,7 +89,7 @@ const ResultPage = ({ handleClose }) => {
                 </div>
               )}
 
-              {responseImage && (
+              {/* {responseImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
                   <p className="text-center  fs-5 txt-black">Response Image</p>
                   <img
@@ -99,7 +99,7 @@ const ResultPage = ({ handleClose }) => {
                     alt="Response"
                   ></img>
                 </div>
-              )}
+              )} */}
 
               {MaskImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
