@@ -69,7 +69,9 @@ const ResultPage = ({ handleClose }) => {
             <div className="col-sm-12 col-lg-6 col-md-6 align-item-center justify-content-center">
               <div className="result_txt">
                 {/* <h3>{"AI Analysis Result"}</h3> */}
-                <p>{Result?.result["Most Probable Diagnosis"]}</p>
+                <p style={{ color: "#A1A1A1" }}>
+                  {Result?.result["Most Probable Diagnosis"]}
+                </p>
               </div>
             </div>
           </div>
@@ -79,9 +81,15 @@ const ResultPage = ({ handleClose }) => {
             <div className="row  justify-content-center mb-2">
               {CropImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                  <p className="text-center fs-5 txt-black">Original Image</p>
+                  <p
+                    className="text-center fs-5 txt-black"
+                    style={{ marginLeft: "-80px", color: "#A1A1A1" }}
+                  >
+                    Original Image
+                  </p>
                   <img
                     src={CropImage}
+                    style={{ marginLeft: "-50px" }}
                     id="upload"
                     className="rounded float-start image result"
                     alt="Original"
@@ -103,7 +111,12 @@ const ResultPage = ({ handleClose }) => {
 
               {MaskImage && (
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                  <p className="text-center  fs-5 txt-black">Response Image</p>
+                  <p
+                    className="text-center  fs-5 txt-black"
+                    style={{ color: "#A1A1A1" }}
+                  >
+                    Response Image
+                  </p>
                   <img
                     src={"data:image/jpeg;base64," + MaskImage}
                     id="upload"
@@ -120,34 +133,46 @@ const ResultPage = ({ handleClose }) => {
               {/* Diagnos Set as a Table */}
               <Col md={6}>
                 <h4>Diagnosis Results</h4>
-                <Table striped bordered hover>
+                <Table striped bordered hover style={{ color: "#A1A1A1" }}>
                   <thead>
                     <tr>
-                      <th>Type</th>
-                      <th>Average Confidence</th>
-                      <th>Detection Count</th>
-                      <th>Max Confidence</th>
+                      <th style={{ color: "#A1A1A1" }}>Type</th>
+                      <th style={{ color: "#A1A1A1" }}>Average Confidence</th>
+                      <th style={{ color: "#A1A1A1" }}>Detection Count</th>
+                      <th style={{ color: "#A1A1A1" }}>Max Confidence</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {Object.keys(Result?.result["Diagnos Set"]).map((key) => (
-                      <tr key={key}>
-                        <td>{key}</td>
-                        <td>
-                          {Result?.result["Diagnos Set"][
-                            key
-                          ].average_confidence.toFixed(2)}
-                        </td>
-                        <td>
-                          {Result?.result["Diagnos Set"][key].detection_count}
-                        </td>
-                        <td>
-                          {Result?.result["Diagnos Set"][
-                            key
-                          ].max_confidence.toFixed(2)}
-                        </td>
-                      </tr>
-                    ))}
+                    {Object.keys(Result?.result["Diagnos Set"]).map(
+                      (key, index) => (
+                        <tr
+                          key={key}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#3e3e3e";
+                            e.currentTarget.style.color = "#ffffff"; // Change text color on hover
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = ""; // Reset background color
+                            e.currentTarget.style.color = "#A1A1A1"; // Reset text color
+                          }}
+                        >
+                          <td style={{ color: "#A1A1A1" }}>{key}</td>
+                          <td style={{ color: "#A1A1A1" }}>
+                            {Result?.result["Diagnos Set"][
+                              key
+                            ].average_confidence.toFixed(2)}
+                          </td>
+                          <td style={{ color: "#A1A1A1" }}>
+                            {Result?.result["Diagnos Set"][key].detection_count}
+                          </td>
+                          <td style={{ color: "#A1A1A1" }}>
+                            {Result?.result["Diagnos Set"][
+                              key
+                            ].max_confidence.toFixed(2)}
+                          </td>
+                        </tr>
+                      )
+                    )}
                   </tbody>
                 </Table>
               </Col>
@@ -175,7 +200,9 @@ const ResultPage = ({ handleClose }) => {
             <Row>
               {/* Recommendations as a List */}
               <Col md={6}>
-                <h4 style={{ color: "#A1A1A1" }}>Recommendations</h4>
+                <h4 style={{ color: "#A1A1A1", marginTop: "20px" }}>
+                  Recommendations
+                </h4>
                 <ListGroup>
                   {Result?.result["Recommendations"].length > 0 ? (
                     Result?.result["Recommendations"].map((rec, index) => (
@@ -199,7 +226,9 @@ const ResultPage = ({ handleClose }) => {
 
               {/* Self-Treatment Options as a List */}
               <Col md={6}>
-                <h4 style={{ color: "#A1A1A1" }}>Self-Treatment Options</h4>
+                <h4 style={{ color: "#A1A1A1", marginTop: "20px" }}>
+                  Self-Treatment Options
+                </h4>
                 <ListGroup>
                   {Result?.result["Self-Treatment Options"].map(
                     (option, index) => (
@@ -316,6 +345,24 @@ const ResultPage = ({ handleClose }) => {
             <button
               className="btn btn-outline-pink"
               onClick={(e) => handdleClick()}
+              style={{
+                backgroundColor: "#ccc", // Light grey background
+                color: "#333", // Darker grey text color
+                padding: "10px 30px", // Smaller padding for a smaller button
+                border: "none", // No border
+                borderRadius: "5px", // Rounded corners
+                cursor: "pointer", // Pointer cursor on hover
+                fontSize: "16px", // Slightly smaller font size
+                transition: "background-color 0.3s, transform 0.3s", // Smooth transition
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#aaa"; // Darker grey on hover
+                e.currentTarget.style.transform = "scale(1.05)"; // Slightly enlarge on hover
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#ccc"; // Reset background color
+                e.currentTarget.style.transform = "scale(1)"; // Reset size
+              }}
             >
               {"Try Again"}
             </button>
