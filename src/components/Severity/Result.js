@@ -5,6 +5,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSeverityContext } from "../useHook/useSeverityContext";
 import { BadgeCard } from "./Badge";
 import "./Result.css";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import html2pdf from "html2pdf.js";
 
 const ResultPage = ({ handleClose }) => {
   const { Result, CropImage, responseImage, setshowdraw, MaskImage } =
@@ -44,6 +47,55 @@ const ResultPage = ({ handleClose }) => {
       changeActiveBadge(Result?.result["severity"]);
     }
   }, [Result]);
+
+  // const downloadFullPageAsPDF = () => {
+  //   const page = document.body;
+
+  //   const options = {
+  //     margin: 0,
+  //     filename: "full_page_capture.pdf",
+  //     image: { type: "jpeg", quality: 0.98 },
+  //     html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+  //     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+  //   };
+
+  //   html2pdf().from(page).set(options).save();
+  // };
+  const downloadFullPageAsPDF = () => {
+    // Get the current date and time
+    const now = new Date();
+    const dateTimeString = now.toLocaleString(); // Format as you prefer
+
+    // Create a clone of the body to avoid capturing specific elements
+    const pageClone = document.createElement("div");
+    const pageElements = document.body.cloneNode(true);
+
+    // Remove specific buttons by their class name
+    const buttonsToRemove = pageElements.querySelectorAll(
+      ".btn.btn-outline-pink, .btn.btn-primary"
+    );
+    buttonsToRemove.forEach((button) => button.remove());
+
+    // Add date and time to the clone
+    const header = document.createElement("div");
+    header.style.textAlign = "right"; // Align to the right
+    header.style.marginBottom = "10px"; // Space from content
+    header.textContent = `Downloaded on: ${dateTimeString}`;
+
+    // Append header and the modified body to the clone
+    pageClone.appendChild(header);
+    pageClone.appendChild(pageElements);
+
+    const options = {
+      margin: 0,
+      filename: "full_page_capture.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    };
+
+    html2pdf().from(pageClone).set(options).save();
+  };
 
   return (
     <div className="container">
@@ -365,6 +417,9 @@ const ResultPage = ({ handleClose }) => {
               }}
             >
               {"Try Again"}
+            </button>
+            <button className="btn btn-primary" onClick={downloadFullPageAsPDF}>
+              Download Page as PDF
             </button>
           </div>
         </div>
