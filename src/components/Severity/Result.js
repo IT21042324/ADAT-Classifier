@@ -1,14 +1,12 @@
+import html2pdf from "html2pdf.js";
 import { useEffect, useState } from "react";
 import { Card, Col, Container, ListGroup, Row, Table } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router-dom";
 import { FaFileDownload } from "react-icons/fa";
 import { Mosaic } from "react-loading-indicators";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSeverityContext } from "../useHook/useSeverityContext";
 import { BadgeCard } from "./Badge";
 import "./Result.css";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-import html2pdf from "html2pdf.js";
 
 const ResultPage = ({ handleClose, typeSetter }) => {
   const {
@@ -24,7 +22,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
   const location = useLocation();
 
   const { type } = location?.state || {};
-
+  const clinicalDiagnosis = Result.resultex["Clinical_diagnosis"];
   const [activeBadge, setActiveBadge] = useState({
     red: false,
     yellow: false,
@@ -183,7 +181,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
             <Row>
               {/* Diagnos Set as a Table */}
               <Col md={6}>
-                <h4>Diagnosis Results</h4>
+                <h4 style={{ color: "#A1A1A1" }}>Diagnosis Results</h4>
                 <Table striped bordered hover style={{ color: "#A1A1A1" }}>
                   <thead>
                     <tr>
@@ -342,20 +340,23 @@ const ResultPage = ({ handleClose, typeSetter }) => {
                 </div>
               )}
               {responseImage2 && (
-                <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
-                  <p
-                    className="text-center  fs-5 txt-black"
-                    style={{ color: "#A1A1A1" }}
-                  >
-                    Visual Saliency
-                  </p>
-                  <img
-                    src={"data:image/jpeg;base64," + responseImage2}
-                    id="upload"
-                    // style={{ marginTop: "-10px" }}
-                    className="rounded float-start image result"
-                    alt="Response"
-                  ></img>
+                <div>
+                  <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
+                    <p
+                      className="text-center  fs-5 txt-black"
+                      style={{ color: "#A1A1A1" }}
+                    >
+                      Visual Saliency
+                    </p>
+                    <img
+                      src={"data:image/jpeg;base64," + responseImage2}
+                      id="upload"
+                      // style={{ marginTop: "-10px" }}
+                      className="rounded float-start image result"
+                      alt="Response"
+                    ></img>
+                  </div>
+                  {clinicalDiagnosis}
                 </div>
               )}
             </div>
