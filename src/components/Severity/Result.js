@@ -28,6 +28,8 @@ const ResultPage = ({ handleClose, typeSetter }) => {
     else handleClose();
   };
 
+  console.log("responseImageNow", responseImage);
+
   const changeActiveBadge = (color) => {
     if (color === "Extremely Severe") {
       setActiveBadge({ red: true, yellow: false, green: false, orange: false });
@@ -108,7 +110,7 @@ const ResultPage = ({ handleClose, typeSetter }) => {
                 <div className="col-sm-12 col-lg-3 col-md-6 text-start mt-3 ">
                   <p className="text-center  fs-5 txt-black">Response Image</p>
                   <img
-                    src={"data:image/jpeg;base64," + responseImage}
+                    src={"data:image/png;base64," + responseImage}
                     id="upload"
                     className="rounded float-start image result"
                     alt="Response"
@@ -325,20 +327,21 @@ const ResultPage = ({ handleClose, typeSetter }) => {
         </>
       )}
 
-      {(Result?.result || responseImage) && (
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-6 col-lg-6 my-3">
-            <div className="Ml_result mb-5">
-              <button
-                className="btn btn-outline-pink"
-                onClick={(e) => handdleClick()}
-              >
-                {"Try Again"}
-              </button>
+      {(Result?.result || responseImage) &&
+        typeSetter?.type !== "Explainable" && (
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-6 col-lg-6 my-3">
+              <div className="Ml_result mb-5">
+                <button
+                  className="btn btn-outline-pink"
+                  onClick={(e) => handdleClick()}
+                >
+                  {"Try Again"}
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
 };

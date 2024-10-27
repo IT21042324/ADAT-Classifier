@@ -5,7 +5,7 @@ export const useBackendAPI = () => {
   return {
     uploadImage: async (formData) => {
       const response = await axios.post(
-        "http://127.0.0.1:5000/api/classification",
+        "http://127.0.0.1:5000/api/acne/classifier",
         formData,
         {
           headers: {
